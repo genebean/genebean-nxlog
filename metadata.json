@@ -1,0 +1,21 @@
+{
+  "name": "genebean-nxlog",
+  "version": "0.1.0",
+  "author": "Gene Liverman",
+  "summary": "This module manages NXLog",
+  "license": "BSD-3-Clause",
+  "source": "https://github.com:genebean/genebean-nxlog.git",
+  "project_page": "https://github.com/genebean/genebean-nxlog",
+  "issues_url": "https://github.com/genebean/genebean-nxlog/issues",
+  "tags": ["zabbix", "monitoring"],
+  "dependencies": [
+    { "name": "chocolatey/chocolatey", "version_requirement": ">= 0.5.3" },
+    { "name": "puppetlabs/stdlib",  "version_requirement": ">= 3.0.0" }
+  ],
+  "requirements": [
+    { "name": "puppet", "version_requirement": ">= 2.7.0 < 4.0.0" }
+  ],
+  "operatingsystem_support": [
+    { "operatingsystem": "Windows", "operatingsystemrelease": [ "7", "2012 R2" ] }
+  ]
+}
