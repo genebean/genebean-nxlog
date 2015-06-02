@@ -9,7 +9,7 @@
 #
 # Resulting output:
 #
-define nxlog::custom_output (
+define nxlog::output (
   $conf_dir         = $::nxlog::conf_dir,
   $conf_file        = $::nxlog::conf_file,
   $order            = '40',
@@ -18,9 +18,9 @@ define nxlog::custom_output (
   $output_module    = undef,
   $output_name      = undef,
   $output_port      = undef,) {
-  concat::fragment { "custom_output_${name}":
+  concat::fragment { "output_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order,
-    content => template('nxlog/custom_output.erb'),
+    content => template('nxlog/output.erb'),
   }
 }
