@@ -1,0 +1,20 @@
+<Input eventlog_json>
+    Module      im_msvistalog
+  Exec        delete($Keywords);
+  Exec        $raw_event = to_json();
+</Input>
+
+<Output local_json>
+    Module      om_file
+  file    'c:\_nxlog-json.txt'
+</Output>
+
+<Output remote>
+    Module      om_udp
+    Host        logserver.example.com
+    Port        6371
+</Output>
+
+<Route Remote>
+    Path        eventlog_json => remote
+</Route>

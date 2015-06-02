@@ -1,0 +1,11 @@
+<Output <%= @output_name %>>
+    Module      <%= @output_module %>
+    <% if @output_file_path -%>
+    File        '<%= @output_file_path %>'
+    <% elsif @output_address -%>
+    Host        <%= @output_address %>
+    <% end -%>
+    <% if @output_address && @output_port -%>
+    Port        <%= @output_port %>
+    <% end -%>
+</Output>
