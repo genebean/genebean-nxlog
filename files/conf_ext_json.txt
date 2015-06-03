@@ -1,3 +1,0 @@
-<Extension json>
-    Module      xm_json
-</Extension>

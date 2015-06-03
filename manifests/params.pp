@@ -3,6 +3,7 @@ class nxlog::params {
   $conf_dir            = undef
   $conf_file           = undef
   $ensure_setting      = latest
+  $nxlog_root          = 'C:/Program Files (x86)/nxlog'
   $output_host_address = undef
   $output_host_module  = 'om_udp'
   $output_host_name    = undef

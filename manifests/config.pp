@@ -2,30 +2,18 @@
 class nxlog::config (
   $conf_dir      = $::nxlog::conf_dir,
   $conf_file     = $::nxlog::conf_file,
+  $nxlog_root    = $::nxlog::nxlog_root,
   $output_local  = $::nxlog::output_local,
   $output_remote = $::nxlog::output_remote,) {
   concat { "${conf_dir}/${conf_file}":
     ensure         => present,
     ensure_newline => true,
-    warn           => true,
   }
 
   concat::fragment { 'conf_header':
     target => "${conf_dir}/${conf_file}",
-    source => 'puppet:///modules/nxlog/conf_header.txt',
+    content => template('nxlog/header.erb'),
     order  => '01',
-  }
-
-  concat::fragment { 'conf_ext_json':
-    target => "${conf_dir}/${conf_file}",
-    source => 'puppet:///modules/nxlog/conf_ext_json.txt',
-    order  => '05',
-  }
-
-  concat::fragment { 'conf_in_eventlog_json':
-    target => "${conf_dir}/${conf_file}",
-    source => 'puppet:///modules/nxlog/conf_in_eventlog_json.txt',
-    order  => '10',
   }
 
   if ($output_local) {
