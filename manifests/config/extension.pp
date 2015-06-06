@@ -7,7 +7,7 @@
 #
 # Resulting output:
 #
-define nxlog::extension (
+define nxlog::config::extension (
   $conf_dir   = $::nxlog::conf_dir,
   $conf_file  = $::nxlog::conf_file,
   $order      = '05',

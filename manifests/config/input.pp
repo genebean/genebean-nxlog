@@ -11,7 +11,7 @@
 #
 # Resulting output:
 #
-define nxlog::input (
+define nxlog::config::input (
   $conf_dir     = $::nxlog::conf_dir,
   $conf_file    = $::nxlog::conf_file,
   $order        = '10',

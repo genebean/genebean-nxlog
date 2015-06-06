@@ -9,7 +9,7 @@
 #
 # Resulting output:
 #
-define nxlog::output (
+define nxlog::config::output (
   $conf_dir         = $::nxlog::conf_dir,
   $conf_file        = $::nxlog::conf_file,
   $order            = '40',

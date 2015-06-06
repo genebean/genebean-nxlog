@@ -11,7 +11,7 @@
 #
 # Resulting output:
 #
-define nxlog::route (
+define nxlog::config::route (
   $conf_dir          = $::nxlog::conf_dir,
   $conf_file         = $::nxlog::conf_file,
   $order             = '90',
