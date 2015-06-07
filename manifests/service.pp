@@ -1,14 +1,16 @@
 # Controls the NXLog service
-class nxlog::service {
-  case $::operatingsystem {
-    'Windows' : {
-      service { 'nxlog':
-        ensure => 'running',
-        enable => true,
+class nxlog::service ($ensure_setting = $::nxlog::ensure_setting,) {
+  case $::kernel {
+    'Linux', 'Windows' : {
+      unless ($ensure_setting =~ /absent/) {
+        service { 'nxlog':
+          ensure => 'running',
+          enable => true,
+        }
       }
     } # end Windows
 
-    default   : {
+    default            : {
       fail("The NXLog module is not yet supported on this ${::operatingsystem}")
     }
 

@@ -1,8 +1,9 @@
+<%# Add a blank line before this block %>
 <Input <%= @name %>>
-  Module      <%= @input_module %>
-  <% if @input_execs %>
-    <% @input_execs.each do |exec| %>
-  Exec        <%= exec -%>;
-    <% end %>
-  <% end %>
+  Module      <%= @input_module -%>
+  <%- if @input_execs -%>
+    <%- @input_execs.each do |exec| %>
+  Exec        <%= "#{exec};" -%>
+    <%- end -%>
+  <%- end %>
 </Input>
