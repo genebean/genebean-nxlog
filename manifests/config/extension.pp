@@ -8,13 +8,13 @@
 # Resulting output:
 #
 define nxlog::config::extension (
-  $conf_dir   = $::nxlog::conf_dir,
-  $conf_file  = $::nxlog::conf_file,
-  $order      = '05',
-  $ext_module = undef,) {
+  $conf_dir        = $::nxlog::conf_dir,
+  $conf_file       = $::nxlog::conf_file,
+  $ext_module      = $::nxlog::ext_module,
+  $order_extension = $::nxlog::order_extension,) {
   concat::fragment { "extension_${name}":
     target  => "${conf_dir}/${conf_file}",
-    order   => $order,
+    order   => $order_extension,
     content => template('nxlog/extension.erb'),
   }
 }

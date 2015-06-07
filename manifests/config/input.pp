@@ -7,19 +7,19 @@
 #     'delete($Keywords)',
 #     '$raw_event = to_json()',
 #   ],
-# }
+#}
 #
 # Resulting output:
 #
 define nxlog::config::input (
   $conf_dir     = $::nxlog::conf_dir,
   $conf_file    = $::nxlog::conf_file,
-  $order        = '10',
-  $input_module = undef,
-  $input_execs  = [],
+  $input_execs  = $::nxlog::input_execs,
+  $input_module = $::nxlog::input_module,
+  $order_input  = $::nxlog::order_input,) {
   concat::fragment { "input_${name}":
     target  => "${conf_dir}/${conf_file}",
-    order   => $order,
+    order   => $order_input,
     content => template('nxlog/input.erb'),
   }
 }
