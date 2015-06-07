@@ -6,7 +6,7 @@ class nxlog::params {
   $ext_module        = undef
   $input_execs       = []
   $input_module      = undef
-  $nxlog_root        = 'C:/Program Files (x86)/nxlog'
+  $nxlog_root        = undef
   $output_address    = undef
   $output_file_path  = undef
   $output_module     = undef

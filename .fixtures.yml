@@ -1,0 +1,7 @@
+fixtures:
+  forge_modules:
+    chocolatey:  "chocolatey/chocolatey"
+    concat:      "puppetlabs/concat"
+    stdlib:      "puppetlabs/stdlib"
+  symlinks:
+    nxlog: "#{source_dir}"
