@@ -7,7 +7,8 @@ describe 'nxlog::config' do
       {
           :kernel          => 'windows',
           :osfamily        => 'windows',
-          :operatingsystem => 'windows'
+          :operatingsystem => 'windows',
+          :concat_basedir  => File.join(Puppet[:vardir],"concat")
       }
     end
 

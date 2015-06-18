@@ -7,7 +7,8 @@ describe 'nxlog::install' do
       {
           :kernel          => 'Linux',
           :osfamily        => 'RedHat',
-          :operatingsystem => 'RedHat'
+          :operatingsystem => 'RedHat',
+          :concat_basedir  => File.join(Puppet[:vardir],"concat")
       }
     end
 
@@ -35,7 +36,8 @@ describe 'nxlog::install' do
       {
           :kernel          => 'windows',
           :osfamily        => 'windows',
-          :operatingsystem => 'windows'
+          :operatingsystem => 'windows',
+          :concat_basedir  => File.join(Puppet[:vardir],"concat")
       }
     end
 
