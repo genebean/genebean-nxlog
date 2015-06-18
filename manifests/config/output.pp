@@ -1,11 +1,16 @@
 # allow for custom output blocks
 #
 # Example Puppet Code:
-# ::nxlog::custom_output { 'sawyer':
+# ::nxlog::config::output { 'sawyer':
 #   output_address => 'logserver.example.com',
 #   output_module  => 'om_udp',
 #   output_port    => '6371',
-#}
+# }
+#
+# ::nxlog::config::output { 'local':
+#   output_file_path => 'C:/local.log',
+#   output_module    => 'om_file',
+# }
 #
 # Resulting output:
 #

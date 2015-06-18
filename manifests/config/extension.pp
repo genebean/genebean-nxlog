@@ -1,9 +1,9 @@
 # allow for custom extension blocks
 #
 # Example Puppet Code:
-# ::nxlog::extension { 'json':
+# ::nxlog::config::extension { 'json':
 #   ext_module  => 'om_udp',
-#}
+# }
 #
 # Resulting output:
 #

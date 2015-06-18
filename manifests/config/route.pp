@@ -1,7 +1,7 @@
 # allow for custom route blocks
 #
 # Example Puppet Code:
-# ::nxlog::route { 'Remote':
+# ::nxlog::config::route { 'Remote':
 #   route_source      => ['eventlog_json'],
 #   route_destination => [
 #     'remote_host',

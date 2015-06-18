@@ -1,13 +1,13 @@
 # allow for custom input blocks
 #
 # Example Puppet Code:
-# ::nxlog::input { 'sawyer':
+# ::nxlog::config::input { 'sawyer':
 #   output_module  => 'im_msvistalog',
 #   input_execs    => [
 #     'delete($Keywords)',
 #     '$raw_event = to_json()',
 #   ],
-#}
+# }
 #
 # Resulting output:
 #
