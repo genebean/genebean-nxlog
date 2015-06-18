@@ -20,8 +20,12 @@ class nxlog (
   $output_module     = $::nxlog::params::output_module,
   $output_port       = $::nxlog::params::output_port,
   $route_destination = $::nxlog::params::route_destination,
-  $route_source      = $::nxlog::params::route_source,)
-  inherits ::nxlog::params {
+  $route_source      = $::nxlog::params::route_source,
+) inherits ::nxlog::params {
+  validate_absolute_path($nxlog_root)
+  validate_absolute_path($conf_dir)
+  validate_string($conf_file)
+
   anchor { '::nxlog::start':
   } ->
   class { '::nxlog::install':

@@ -15,7 +15,9 @@ class nxlog::install ($ensure_setting = $::nxlog::ensure_setting,) {
     } # end Windows
 
     default   : {
+      # lint:ignore:80chars
       fail("The NXLog module is not yet supported on this ${::operatingsystem}")
+      # lint:endignore
     }
 
   } # end $::kernel case
