@@ -23,9 +23,9 @@ class nxlog::config (
 
   # Ensure there is a blank line at the end of the file
   concat::fragment { 'conf_footer':
-    target => "${conf_dir}/${conf_file}",
+    target  => "${conf_dir}/${conf_file}",
     content => '',
-    order  => '99',
+    order   => '99',
   }
 
 }
