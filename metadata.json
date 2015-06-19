@@ -1,6 +1,6 @@
 {
   "name": "genebean-nxlog",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Gene Liverman",
   "summary": "This module manages NXLog",
   "license": "BSD-3-Clause",
@@ -14,7 +14,7 @@
     { "name": "puppetlabs/stdlib",  "version_requirement": ">= 4.5.0 < 5.0.0" }
   ],
   "requirements": [
-    { "name": "puppet", "version_requirement": ">= 3.0.0 < 4.0.0" }
+    { "name": "puppet", "version_requirement": ">= 3.0.0" }
   ],
   "operatingsystem_support": [
     { "operatingsystem": "Windows", "operatingsystemrelease": [ "7", "2012 R2" ] }
