@@ -1,0 +1,19 @@
+##########################################################
+##
+##   This file is managed by the Puppet module nxlog
+##
+##########################################################
+
+## configuration options. It should be installed locally and is also available
+## online at http://nxlog.org/nxlog-docs/en/nxlog-reference-manual.html
+
+## Please set the ROOT to the folder your nxlog was installed into,
+## otherwise it will not start.
+
+define ROOT <%= @nxlog_root %>
+
+Moduledir %ROOT%\modules
+CacheDir %ROOT%\data
+Pidfile %ROOT%\data\nxlog.pid
+SpoolDir %ROOT%\data
+LogFile %ROOT%\data\nxlog.log
