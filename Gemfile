@@ -14,10 +14,6 @@ group :development, :unit_tests do
   gem 'rspec-puppet',            '~> 2.0'
 end
 
-group :ci do
-  gem 'coveralls', require: false
-end
-
 group :packaging do
   gem 'puppet-blacksmith',       '>= 3.3.0'
 end
