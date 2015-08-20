@@ -35,7 +35,7 @@ describe 'nxlog::config::input', :type => :define do
       it { should contain_concat__fragment('input_eventlog_json').with_content(/<\/Input>/) }
     end
 
-  end
+  
     describe 'inputting from a local file' do
       let :pre_condition do
         "class {'nxlog':
@@ -56,4 +56,5 @@ describe 'nxlog::config::input', :type => :define do
         it { should contain_concat__fragment('input_logfile').with_content(/<\/Input>/) }
       end
     end
+  end
 end
