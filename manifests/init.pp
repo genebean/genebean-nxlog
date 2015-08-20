@@ -8,6 +8,7 @@ class nxlog (
   $ensure_setting    = $::nxlog::params::ensure_setting,
   $ext_module        = $::nxlog::params::ext_module,
   $input_execs       = $::nxlog::params::input_execs,
+  $input_file_path   = $::nxlog::params::input_file_path,
   $input_module      = $::nxlog::params::input_module,
   $nxlog_root        = $::nxlog::params::nxlog_root,
   $order_extension   = $::nxlog::params::order_extension,
