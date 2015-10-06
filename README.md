@@ -110,6 +110,7 @@ Each of these builds a section of the config file.
 name.
 
 * `ext_module` - the name of the extension module to use
+* `ext_options` - an array of options for the added ext_module
 
 `nxlog::config::input` - builds an Input section using the specified name.
 
