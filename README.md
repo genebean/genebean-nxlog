@@ -115,6 +115,7 @@ name.
 `nxlog::config::input` - builds an Input section using the specified name.
 
 * `input_execs`  - an array of Exec statements to include (Optional)
+*	`input_file_path` - defines the path to use if reading from a local file
 * `input_module` - the name of the input module to use
 
 `nxlog::config::output` - builds an Output section using the specified name.
@@ -136,7 +137,7 @@ On Windows it is assumed that you are using [Chocolatey][chocolatey] to install 
 
 On Linux it is assumed that you have a custom repo with the installer available within.
 
-
+ 
 ## Development
 
 Pull requests are welcome! A Vagrantfile is included in this module to aide in
