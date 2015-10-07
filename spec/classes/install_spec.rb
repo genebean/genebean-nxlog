@@ -12,23 +12,44 @@ describe 'nxlog::install' do
       }
     end
 
-    let :pre_condition do
-      "class {'nxlog':
-        conf_dir   => '/opt/nxlog/etc/nxlog/conf',
-        conf_file  => 'nxlog.conf',
-        nxlog_root => '/opt/nxlog/etc/nxlog',
-      }"
+    context 'with the default package' do
+      let :pre_condition do
+        "class {'nxlog':
+          conf_dir   => '/opt/nxlog/etc/nxlog/conf',
+          conf_file  => 'nxlog.conf',
+          nxlog_root => '/opt/nxlog/etc/nxlog',
+        }"
+      end
+
+      it 'should install the latest version of NXLog by default' do
+        should contain_package('nxlog-ce').with(
+                   'ensure' => 'latest',
+               )
+      end
+
+      it "should use '/opt/nxlog/etc/nxlog/conf/nxlog.conf' as it's config file" do
+        should contain_concat('/opt/nxlog/etc/nxlog/conf/nxlog.conf')
+      end
     end
 
-    it 'should install the latest version of NXLog by default' do
-      should contain_package('nxlog').with(
-                 'ensure' => 'latest',
-             )
+    context 'with a different package name and ensure_setting => present' do
+      let :pre_condition do
+        "class {'nxlog':
+          conf_dir       => '/opt/nxlog/etc/nxlog/conf',
+          conf_file      => 'nxlog.conf',
+          ensure_setting => 'present',
+          nxlog_root     => '/opt/nxlog/etc/nxlog',
+          package_name   => 'nxlog-custom-build',
+        }"
+      end
+
+      it 'should install the custom version of NXLog wit ensure => present' do
+        should contain_package('nxlog-custom-build').with(
+                   'ensure' => 'present',
+               )
+      end
     end
 
-    it "should use '/opt/nxlog/etc/nxlog/conf/nxlog.conf' as it's config file" do
-      should contain_concat('/opt/nxlog/etc/nxlog/conf/nxlog.conf')
-    end
   end
 
   context 'On Windows' do
