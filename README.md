@@ -4,7 +4,7 @@
 
 # nxlog
 
-####Table of Contents
+#### Table of Contents
 
 1. [Overview](#overview)
 2. [Module Description - What the module does and why it is useful](#module-description)
@@ -100,7 +100,8 @@ module.
 
 `ensure_setting` - this is passed to the package resource
 
-`nxlog_root` - the installation directory for the nxlog program.
+`nxlog_root` - the installation directory for the nxlog program. On Windows this
+is a required setting as NXLog will not start otherwise.
 
 ### Defined Types
 
@@ -110,7 +111,8 @@ Each of these builds a section of the config file.
 name.
 
 * `ext_module` - the name of the extension module to use
-* `ext_options` - an array of options for the added ext_module
+* `ext_options` - an array of options for the added ext_module. Each item in
+  the array will be an line in this section of the config file.
 
 `nxlog::config::input` - builds an Input section using the specified name.
 
@@ -133,16 +135,27 @@ name.
 
 ## Limitations
 
-On Windows it is assumed that you are using [Chocolatey][chocolatey] to install packages.
+On Windows it is assumed that you are using [Chocolatey][chocolatey] to install
+packages.
 
-On Linux it is assumed that you have a custom repo with the installer available within.
+On Linux it is assumed that you have a custom repo which contains `nxlog-ce`.
+You can work around this by installing the program separately and setting
+`ensure_setting => present`.
 
- 
+
 ## Development
 
 Pull requests are welcome! A Vagrantfile is included in this module to aide in
 testing and development. All code must have tests before it will be merged but I
 am happy to help with that part.
+
+
+## Contributors
+
+* Jaime Viloria (@cerealcake) - Added support for specifying options for
+  extension modules.
+* @egouraud - Added support for specifying the input file used by some input
+  modules.
 
 
 [chocolatey]: https://chocolatey.org
