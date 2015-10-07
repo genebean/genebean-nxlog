@@ -18,6 +18,7 @@ class nxlog (
   $order_output      = $::nxlog::params::order_output,
   $order_route       = $::nxlog::params::order_route,
   $output_address    = $::nxlog::params::output_address,
+  $output_execs      = $::nxlog::params::output_execs,
   $output_file_path  = $::nxlog::params::output_file_path,
   $output_module     = $::nxlog::params::output_module,
   $output_port       = $::nxlog::params::output_port,

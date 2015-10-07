@@ -123,6 +123,7 @@ name.
 `nxlog::config::output` - builds an Output section using the specified name.
 
 * `output_address`   - the address of the remote host to send data to
+* `output_execs`  - an array of Exec statements to include (Optional)
 *	`output_file_path` - defines the path to use if writing to a local file
 * `output_module`    - the name of the output module to use
 *	`output_port`      - the port on the remote host to send data to

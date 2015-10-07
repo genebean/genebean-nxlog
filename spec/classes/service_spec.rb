@@ -24,8 +24,9 @@ describe 'nxlog::service' do
 
       it 'should enable the nxlog service' do
         should contain_service('nxlog').with(
-                 'ensure' => 'running',
-                 'enable' => 'true'
+                 'ensure'    => 'running',
+                 'enable'    => 'true',
+                 'subscribe' => 'Concat[C:/nxlog/conf/nxlog.conf]'
                )
       end
     end
