@@ -10,6 +10,7 @@ class nxlog::params {
   $input_file_path   = undef
   $nxlog_root        = undef
   $output_address    = undef
+  $output_execs      = []
   $output_file_path  = undef
   $output_module     = undef
   $output_port       = undef
