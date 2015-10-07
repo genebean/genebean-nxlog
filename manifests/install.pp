@@ -1,14 +1,17 @@
 # Installs NXLog
-class nxlog::install ($ensure_setting = $::nxlog::ensure_setting,) {
+class nxlog::install (
+  $ensure_setting = $::nxlog::ensure_setting,
+  $package_name   = $::nxlog::package_name,
+  ) {
   case $::kernel {
     'Linux'   : {
-      package { 'nxlog':
+      package { $package_name:
         ensure => $ensure_setting,
       }
     }
 
     'Windows' : {
-      package { 'nxlog':
+      package { $package_name:
         ensure   => $ensure_setting,
         provider => 'chocolatey',
       }

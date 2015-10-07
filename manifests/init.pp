@@ -7,7 +7,9 @@ class nxlog (
   $conf_file         = $::nxlog::params::conf_file,
   $ensure_setting    = $::nxlog::params::ensure_setting,
   $ext_module        = $::nxlog::params::ext_module,
+  $ext_options       = $::nxlog::params::ext_options,
   $input_execs       = $::nxlog::params::input_execs,
+  $input_file_path   = $::nxlog::params::input_file_path,
   $input_module      = $::nxlog::params::input_module,
   $nxlog_root        = $::nxlog::params::nxlog_root,
   $order_extension   = $::nxlog::params::order_extension,
@@ -19,10 +21,13 @@ class nxlog (
   $output_file_path  = $::nxlog::params::output_file_path,
   $output_module     = $::nxlog::params::output_module,
   $output_port       = $::nxlog::params::output_port,
+  $package_name      = $::nxlog::params::package_name,
   $route_destination = $::nxlog::params::route_destination,
   $route_source      = $::nxlog::params::route_source,
 ) inherits ::nxlog::params {
-  validate_absolute_path($nxlog_root)
+  if ($nxlog_root) {
+    validate_absolute_path($nxlog_root)
+  }
   validate_absolute_path($conf_dir)
   validate_string($conf_file)
 

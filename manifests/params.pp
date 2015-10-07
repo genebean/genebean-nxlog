@@ -4,13 +4,20 @@ class nxlog::params {
   $conf_file         = undef
   $ensure_setting    = latest
   $ext_module        = undef
+  $ext_options       = undef
   $input_execs       = []
   $input_module      = undef
+  $input_file_path   = undef
   $nxlog_root        = undef
   $output_address    = undef
   $output_file_path  = undef
   $output_module     = undef
   $output_port       = undef
+  $package_name = $::kernel ? {
+    'Linux'   => 'nxlog-ce',
+    'Windows' => 'nxlog',
+    default   => 'nxlog',
+  }
   $route_destination = undef
   $route_source      = undef
 
