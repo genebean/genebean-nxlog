@@ -19,6 +19,7 @@ describe 'nxlog::config::output', :type => :define do
           conf_file        => 'nxlog.conf',
           nxlog_root       => 'C:/nxlog',
           output_address   => 'logserver.example.com',
+          output_execs     => [ 'to_syslog_ietf()', ],
           output_module    => 'om_udp',
           output_port      => '6371',
         }"
@@ -31,6 +32,7 @@ describe 'nxlog::config::output', :type => :define do
         it { should contain_concat__fragment('output_logserver').with_content(/\s\sModule\s+om_udp/) }
         it { should contain_concat__fragment('output_logserver').with_content(/\s\sHost\s+logserver.example.com/) }
         it { should contain_concat__fragment('output_logserver').with_content(/\s\sPort\s+6371/) }
+        it { should contain_concat__fragment('output_logserver').with_content(/\s\sExec\s+to_syslog_ietf\(\);/) }
         it { should contain_concat__fragment('output_logserver').with_content(/<\/Output>/) }
       end
     end
