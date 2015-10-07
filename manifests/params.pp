@@ -13,6 +13,11 @@ class nxlog::params {
   $output_file_path  = undef
   $output_module     = undef
   $output_port       = undef
+  $package_name = $::kernel ? {
+    'Linux'   => 'nxlog-ce',
+    'Windows' => 'nxlog',
+    default   => 'nxlog',
+  }
   $route_destination = undef
   $route_source      = undef
 
