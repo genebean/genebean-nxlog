@@ -1,6 +1,6 @@
 [![GitHub tag][gh-tag-img]][gh-link]
 
-## 2015-10-07 Release 1.2.1  
+## 2015-10-07 Release 1.2.2  
 * Fixed an indentation issue
 
 ## 2015-10-07 Release 1.2.0  
