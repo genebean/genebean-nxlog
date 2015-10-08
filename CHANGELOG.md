@@ -1,5 +1,11 @@
 [![GitHub tag][gh-tag-img]][gh-link]
 
+## 2015-10-07 Release 1.2.0  
+* Fixed error in example code in the README
+* Added support for using processors
+* Added support for output execs
+* Adjusted the service resource so that it restarts when the config is updated
+
 ## 2015-10-07 Release 1.1.0  
 * Jaime Viloria (@cerealcake) added support for specifying options for
   extension modules.
