@@ -1,5 +1,8 @@
 [![GitHub tag][gh-tag-img]][gh-link]
 
+## 2015-10-07 Release 1.2.1  
+* Fixed an indentation issue
+
 ## 2015-10-07 Release 1.2.0  
 * Fixed error in example code in the README
 * Added support for using processors
