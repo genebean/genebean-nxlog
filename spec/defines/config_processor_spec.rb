@@ -17,7 +17,7 @@ describe 'nxlog::config::processor', :type => :define do
           conf_dir                    => 'C:/nxlog/conf',
           conf_file                   => 'nxlog.conf',
           processor_module            => 'pm_transformer',
-          porcessor_input_format      => 'syslog_rfc3164',
+          processor_input_format      => 'syslog_rfc3164',
           processor_output_format     => 'csv',
           processor_csv_output_fields => [
             '$facility',

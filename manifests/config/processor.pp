@@ -3,7 +3,7 @@
 # Example Puppet Code:
 # ::nxlog::config::processor { 'tranformer':
 #   processor_module  => 'pm_transformer',
-#   porcessor_input_format    => 'syslog_rfc3164',
+#   processor_input_format    => 'syslog_rfc3164',
 #   processor_output_format   => 'csv',
 #   processor_csv_output_fields => [
 #     '$facility',
@@ -23,7 +23,7 @@ define nxlog::config::processor (
   $conf_file                   = $::nxlog::conf_file,
   $order_processor             = $::nxlog::order_output,
   $processor_module            = $::nxlog::processor_module,
-  $porcessor_input_format      = $::nxlog::porcessor_input_format,
+  $processor_input_format      = $::nxlog::processor_input_format,
   $processor_output_format     = $::nxlog::processor_output_format,
   $processor_csv_output_fields = $::nxlog::processor_csv_output_fields,
   ) {

@@ -20,7 +20,7 @@ class nxlog::params {
     default   => 'nxlog',
   }
   $processor_module            = undef
-  $porcessor_input_format      = undef
+  $processor_input_format      = undef
   $processor_output_format     = undef
   $processor_csv_output_fields = []
   $route_destination           = undef

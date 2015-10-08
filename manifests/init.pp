@@ -24,7 +24,7 @@ class nxlog (
   $output_port                 = $::nxlog::params::output_port,
   $package_name                = $::nxlog::params::package_name,
   $processor_module            = $::nxlog::params::processor_module,
-  $porcessor_input_format      = $::nxlog::params::porcessor_input_format,
+  $processor_input_format      = $::nxlog::params::processor_input_format,
   $processor_output_format     = $::nxlog::params::processor_output_format,
   $processor_csv_output_fields = $::nxlog::params::processor_csv_output_fields,
   $route_destination           = $::nxlog::params::route_destination,

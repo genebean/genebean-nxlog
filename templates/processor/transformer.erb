@@ -1,7 +1,7 @@
 <%# Add a blank line before this block %>
 <Processor <%= @name %>>
     Module          <%= @processor_module %>
-    InputFormat     <%= @porcessor_input_format %>
+    <%- if @processor_input_format %><%= "InputFormat      #{@processor_input_format}" %><% end %>
     OutputFormat    <%= @processor_output_format %>
     <%- if @processor_csv_output_fields -%>
     CSVOutputFields <%= @processor_csv_output_fields.join(', ') %><% end %>
