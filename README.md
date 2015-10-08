@@ -47,42 +47,42 @@ This is an example of how to build a full config file:
 
 ```puppet
 class {'nxlog':
-	conf_dir       => 'C:\Program Files (x86)\nxlog\conf',
-	conf_file      => 'nxlog.conf',
+  conf_dir       => 'C:/Program Files (x86)/nxlog/conf', # note the /'s here
+  conf_file      => 'nxlog.conf',
   ensure_setting => latest,
-	nxlog_root     => 'C:\Program Files (x86)\nxlog',
+  nxlog_root     => 'C:\Program Files (x86)\nxlog',
 }
 
 nxlog::config::extension { 'json':
-	ext_module => 'xm_json',
+  ext_module => 'xm_json',
 }
 
 nxlog::config::input { 'eventlog_json':
-	input_execs  => [
+  input_execs  => [
     'delete($Keywords)',
-		'$raw_event = to_json()',
-	],
-	input_module => 'im_msvistalog',
+    '$raw_event = to_json()',
+  ],
+  input_module => 'im_msvistalog',
 }
 
 nxlog::config::output { 'local_json':
-	output_file_path => 'C:\eventlog-json.txt',
-	output_module    => 'om_file',
+  output_file_path => 'C:\eventlog-json.txt',
+  output_module    => 'om_file',
 }
 
 nxlog::config::output { 'logserver':
-	output_address   => 'logserver.example.com',
-	output_module    => 'om_udp',
-	output_port      => '6371',
+  output_address   => 'logserver.example.com',
+  output_module    => 'om_udp',
+  output_port      => '6371',
 }
 
 nxlog::config::route { 'local':
-	route_destination => [ 'local_json', ],
+  route_destination => [ 'local_json', ],
   route_source      => [ 'eventlog_json', ],
 }
 
 nxlog::config::route { 'logserver':
-	route_destination => [ 'logserver', ],
+  route_destination => [ 'logserver', ],
   route_source      => [ 'eventlog_json', ],
 }
 ```
@@ -123,9 +123,18 @@ name.
 `nxlog::config::output` - builds an Output section using the specified name.
 
 * `output_address`   - the address of the remote host to send data to
+* `output_execs`  - an array of Exec statements to include (Optional)
 *	`output_file_path` - defines the path to use if writing to a local file
 * `output_module`    - the name of the output module to use
 *	`output_port`      - the port on the remote host to send data to
+
+`nxlog::config::processor` - builds a Processor section using the specified name.
+
+* `processor_module` - the name of the processor module to use
+* `porcessor_input_format` - the format of the data being converted or processed
+* `processor_output_format` - the format to convert the data to
+* `processor_csv_output_fields` - fields which are placed in the CSV lines.
+  The field names must have the dollar sign "$" prepended.
 
 `nxlog::config::route` - builds a Route section using the specified name.
 
@@ -141,6 +150,11 @@ packages.
 On Linux it is assumed that you have a custom repo which contains `nxlog-ce`.
 You can work around this by installing the program separately and setting
 `ensure_setting => present`.
+
+`nxlog::config::processor` chooses a template based on the value of
+`processor_module`. Not all of the possible modules have had templates generated
+for them yet... if you want one that does not yet feel free to file a bug report
+or, better yet, send a pull request.
 
 
 ## Development

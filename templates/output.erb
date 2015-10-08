@@ -9,4 +9,9 @@
   <%- if @output_address && @output_port -%>
   Port        <%= @output_port %>
   <%- end -%>
+  <%- if @output_execs -%>
+    <%- @output_execs.each do |exec| %>
+  Exec        <%= "#{exec};" -%>
+    <%- end -%>
+  <%- end %>
 </Output>
