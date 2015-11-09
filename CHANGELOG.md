@@ -1,5 +1,8 @@
 [![GitHub tag][gh-tag-img]][gh-link]
 
+## 2015-10-07 Release 1.3.0  
+* Jaime Viloria (@cerealcake) added support for specifying output options
+
 ## 2015-10-07 Release 1.2.2  
 * Fixed an indentation issue
 

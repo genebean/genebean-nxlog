@@ -166,6 +166,7 @@ am happy to help with that part.
 
 ## Contributors
 
+* Jaime Viloria (@cerealcake) - Added support for specifying output options.
 * Jaime Viloria (@cerealcake) - Added support for specifying options for
   extension modules.
 * @egouraud - Added support for specifying the input file used by some input

@@ -10,7 +10,7 @@ group :development, :unit_tests do
   gem 'metadata-json-lint',      '~> 0.0.6'
   gem 'puppet',                  puppetversion
   gem 'puppet-lint',             ['>= 1.0.0', '< 1.1.0']
-  gem 'puppetlabs_spec_helper',  '~> 0.10'
+  gem 'puppetlabs_spec_helper',  '~> 1.0'
   gem 'rspec-puppet',            '~> 2.0'
 end
 
