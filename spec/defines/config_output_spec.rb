@@ -58,6 +58,41 @@ describe 'nxlog::config::output', :type => :define do
       end
     end
 
+    describe 'sending binary data with module om_ssl' do
+      let :pre_condition do
+        "class {'nxlog':
+          nxlog_root       => 'C:/nxlog',
+          conf_dir         => 'C:/nxlog/conf',
+          output_address   => 'logserver.example.com',
+          output_module    => 'om_ssl',
+          output_options   => [
+            'OutputType Binary',
+            'CAFile %CERTDIR%/ca.pem',
+            'CertFile %CERTDIR%/client-cert.pem',
+            'CertKeyFile %CERTDIR%/client-key.pem',
+            'KeyPass secret',
+            'AllowUntrusted TRUE'
+          ],
+        }"
+      end
+
+      let(:title) { 'sslout' }
+
+      describe 'builds an Output section for the config file which' do
+        it { should contain_concat__fragment('output_sslout').with_content(/<Output sslout>/) }
+        it { should contain_concat__fragment('output_sslout').with_content(/\s\sModule\s+om_ssl/) }
+        it { should contain_concat__fragment('output_sslout').with_content(/\s\sHost\s+logserver.example.com/) }
+        it { should contain_concat__fragment('output_sslout').with_content(/\s\sOutputType Binary/) }
+        it { should contain_concat__fragment('output_sslout').with_content(/\s\sCAFile %CERTDIR%\/ca.pem/) }
+        it { should contain_concat__fragment('output_sslout').with_content(/\s\sCertFile %CERTDIR%\/client-cert.pem/) }
+        it { should contain_concat__fragment('output_sslout').with_content(/\s\sCertKeyFile %CERTDIR%\/client-key.pem/) }
+        it { should contain_concat__fragment('output_sslout').with_content(/\s\sKeyPass secret/) }
+        it { should contain_concat__fragment('output_sslout').with_content(/\s\sAllowUntrusted TRUE/) }
+        it { should contain_concat__fragment('output_sslout').with_content(/<\/Output>/) }
+      end
+    end
+
+
   end
 
 end
