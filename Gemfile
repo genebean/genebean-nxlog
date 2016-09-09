@@ -17,9 +17,19 @@ group :development, :unit_tests do
 
   gem 'metadata-json-lint',      '~> 0.0.6'
   gem 'puppet',                  puppetversion
-  gem 'puppet-lint',             ['>= 1.0.0', '< 1.1.0']
+  gem 'puppet-lint',             '~> 1.1'
   gem 'puppetlabs_spec_helper',  '~> 1.0'
   gem 'rspec-puppet',            '~> 2.0'
+  
+  # puppet-lint plugins
+  gem 'puppet-lint-absolute_classname-check', '~> 0.1'
+  gem 'puppet-lint-empty_string-check', '~> 0.2'
+  gem 'puppet-lint-leading_zero-check', '~> 0.1'
+  gem 'puppet-lint-spaceship_operator_without_tag-check', '~> 0.1'
+  gem 'puppet-lint-trailing_newline-check', '~> 1.0'
+  gem 'puppet-lint-undef_in_function-check', '~> 0.1'
+  gem 'puppet-lint-unquoted_string-check', '~> 0.2'
+  gem 'puppet-lint-variable_contains_upcase', '~> 1.0'
 end
 
 group :packaging do
