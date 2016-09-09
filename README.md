@@ -119,6 +119,7 @@ name.
 * `input_execs`  - an array of Exec statements to include (Optional)
 *	`input_file_path` - defines the path to use if reading from a local file
 * `input_module` - the name of the input module to use
+* `input_type` - the name of the registered input reader function to use
 
 `nxlog::config::output` - builds an Output section using the specified name.
 
