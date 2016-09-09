@@ -1,1 +1,1 @@
-include nxlog
+include ::nxlog
