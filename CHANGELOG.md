@@ -1,5 +1,12 @@
 [![GitHub tag][gh-tag-img]][gh-link]
 
+## 2016-09-09 Release 1.4.0  
+* Camilo Cota (@camilocot) added the `input_type` setting
+* I updated the Gemfile to make json and json_pure work with multiple ruby
+  versions.
+* Added additional puppet-lint tests and update puppet-lint
+* Added a Travis test for Puppet 3.x w/ strict variables
+
 ## 2015-10-07 Release 1.3.0  
 * Jaime Viloria (@cerealcake) added support for specifying output options
 
