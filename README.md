@@ -172,6 +172,7 @@ am happy to help with that part.
   extension modules.
 * @egouraud - Added support for specifying the input file used by some input
   modules.
+* Camilo Cota (@camilocot) - Added the `input_type` setting
 
 
 [chocolatey]: https://chocolatey.org
