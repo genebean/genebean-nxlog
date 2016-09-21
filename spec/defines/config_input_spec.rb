@@ -54,7 +54,7 @@ describe 'nxlog::config::input', :type => :define do
         it { should contain_concat__fragment('input_logfile').with_content(/<Input logfile>/) }
         it { should contain_concat__fragment('input_logfile').with_content(/\s\sModule\s+im_file/) }
         it { should contain_concat__fragment('input_logfile').with_content(/\s\sFile\s+'C:\/logfile\.log'/) }
-        it { should contain_concat__fragment('input_logfile').with_content(/\s\sInputType\s+'multiline'/) }
+        it { should contain_concat__fragment('input_logfile').with_content(/\s\sInputType\s+multiline/) }
         it { should contain_concat__fragment('input_logfile').with_content(/<\/Input>/) }
       end
     end
