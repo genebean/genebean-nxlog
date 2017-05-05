@@ -86,9 +86,18 @@ nxlog::config::route { 'logserver':
   route_source      => [ 'eventlog_json', ],
 }
 ```
-
+### Use custom windows package
+```puppet
+class {'nxlog':
+  conf_dir        => 'C:/Program Files (x86)/nxlog/conf', # note the /'s here
+  conf_file       => 'nxlog.conf',
+  ensure_setting  => present,
+  package_source  => 'C:\\Temp\\nxlog.msi',
+  install_options => '/qn'
+  nxlog_root      => 'C:\\Program Files (x86)\\nxlog',
+}
+```
 ## Usage
-
 ### Class nxlog
 
 These settings are used both in the config file and by the other parts of the
@@ -113,6 +122,7 @@ name.
 * `ext_module` - the name of the extension module to use
 * `ext_options` - an array of options for the added ext_module. Each item in
   the array will be an line in this section of the config file.
+* `ext_template` - for use custom template
 
 `nxlog::config::input` - builds an Input section using the specified name.
 
@@ -120,18 +130,24 @@ name.
 *	`input_file_path` - defines the path to use if reading from a local file
 * `input_module` - the name of the input module to use
 * `input_type` - the name of the registered input reader function to use
-
+* `input_options` - an array of options for the added input_module. Each 
+  item in the array will be an line in this section of the config file
+* `input_template` - for use custom template
 `nxlog::config::output` - builds an Output section using the specified name.
 
 * `output_address`   - the address of the remote host to send data to
 * `output_execs`  - an array of Exec statements to include (Optional)
 *	`output_file_path` - defines the path to use if writing to a local file
 * `output_module`    - the name of the output module to use
+* `output_options` - an array of options for the added output_module. Each 
+  item in the array will be an line in this section of the config file
+* `output_template` - for use custom template
 *	`output_port`      - the port on the remote host to send data to
 
 `nxlog::config::processor` - builds a Processor section using the specified name.
 
 * `processor_module` - the name of the processor module to use
+* `processor_template` - for use custom template
 * `porcessor_input_format` - the format of the data being converted or processed
 * `processor_output_format` - the format to convert the data to
 * `processor_csv_output_fields` - fields which are placed in the CSV lines.
@@ -139,8 +155,9 @@ name.
 
 `nxlog::config::route` - builds a Route section using the specified name.
 
-*	route_destination - an array of outputs to send data to
-* route_source      - an array of inputs to send to the named destination
+*	`route_destination` - an array of outputs to send data to
+* `route_source`      - an array of inputs to send to the named destination
+* `route_template`    - for use custom template
 
 
 ## Limitations
@@ -161,7 +178,7 @@ or, better yet, send a pull request.
 ## Development
 
 Pull requests are welcome! A Vagrantfile is included in this module to aide in
-testing and development. All code must have tests before it will be merged but I
+testing and development. All code must have tests before it will be merged but I 
 am happy to help with that part.
 
 

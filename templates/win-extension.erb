@@ -1,0 +1,5 @@
+<%# Add a blank line before this block %>
+<Extension <%= @name %>>
+  Module      <%= @ext_module %>
+<% [*@ext_options].each do |ext_option| -%><%="  #{ext_option}" %>
+<% end %></Extension>

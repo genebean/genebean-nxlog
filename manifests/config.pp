@@ -7,17 +7,24 @@ class nxlog::config (
     ensure         => present,
     ensure_newline => true,
   }
-
+  $prefix = $::kernel ? {
+    'Windows' => 'win-',
+    default   => '',
+  }
+  $content = $::kernel ? {
+    'Windows' => "\r\n",
+    default   => "\n",
+  }
   concat::fragment { 'conf_header':
     target  => "${conf_dir}/${conf_file}",
-    content => template('nxlog/header.erb'),
+    content => template("nxlog/${prefix}header.erb"),
     order   => '01',
   }
 
   # Ensure there is a blank line at the end of the file
   concat::fragment { 'conf_footer':
     target  => "${conf_dir}/${conf_file}",
-    content => "\n",
+    content => $content,
     order   => '99',
   }
 

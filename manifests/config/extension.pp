@@ -12,10 +12,12 @@ define nxlog::config::extension (
   $conf_file       = $::nxlog::conf_file,
   $ext_module      = $::nxlog::ext_module,
   $ext_options     = $::nxlog::ext_options,
-  $order_extension = $::nxlog::order_extension,) {
+  $ext_template    = $::nxlog::ext_template,
+  $order_extension = $::nxlog::order_extension,
+  ) {
   concat::fragment { "extension_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_extension,
-    content => template('nxlog/extension.erb'),
+    content => template($ext_template),
   }
 }

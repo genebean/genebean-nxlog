@@ -1,0 +1,18 @@
+<%# Add a blank line before this block %>
+<Output <%= @name %>>
+  Module      <%= @output_module %>
+  <%- if @output_file_path -%>
+  File        <%= "'#{@output_file_path}'" %>
+  <%- elsif @output_address -%>
+  Host        <%= @output_address %>
+  <%- end -%>
+  <%- if @output_address && @output_port -%>
+  Port        <%= @output_port %>
+  <%- end -%>
+  <%- if @output_execs -%>
+    <%- @output_execs.each do |exec| %>
+  Exec        <%= "#{exec};" -%>
+    <%- end -%>
+  <%- end %>
+<% [*@output_options].each do |output_option| -%><%="  #{output_option}" %>
+<% end %></Output>
