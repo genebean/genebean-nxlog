@@ -1,5 +1,8 @@
 [![GitHub tag][gh-tag-img]][gh-link]
 
+## 2017-08-06 - Release 1.4.1  
+- First run at using modulesync
+
 ## 2016-09-09 Release 1.4.0  
 * Camilo Cota (@camilocot) added the `input_type` setting
 * I updated the Gemfile to make json and json_pure work with multiple ruby
