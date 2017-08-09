@@ -39,13 +39,13 @@ class nxlog (
   validate_string($conf_file)
 
   anchor { '::nxlog::start':
-  } ->
-  class { '::nxlog::install':
-  } ->
-  class { '::nxlog::config':
-  } ->
-  class { '::nxlog::service':
-  } ->
-  anchor { '::nxlog::end':
+  }
+  -> class { '::nxlog::install':
+  }
+  -> class { '::nxlog::config':
+  }
+  -> class { '::nxlog::service':
+  }
+  -> anchor { '::nxlog::end':
   }
 }

@@ -1,22 +1,44 @@
 {
   "name": "genebean-nxlog",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": "Gene Liverman",
   "summary": "This module manages NXLog",
   "license": "BSD-3-Clause",
   "source": "https://github.com:genebean/genebean-nxlog.git",
   "project_page": "https://github.com/genebean/genebean-nxlog",
   "issues_url": "https://github.com/genebean/genebean-nxlog/issues",
-  "tags": ["logging", "nxlog", "eventlog"],
+  "tags": [
+    "logging",
+    "nxlog",
+    "eventlog"
+  ],
   "dependencies": [
-    { "name": "chocolatey/chocolatey", "version_requirement": ">= 1.0.0" },
-    { "name": "puppetlabs/concat",  "version_requirement": ">= 1.2.3" },
-    { "name": "puppetlabs/stdlib",  "version_requirement": ">= 4.5.0 < 5.0.0" }
+    {
+      "name": "chocolatey/chocolatey",
+      "version_requirement": ">= 1.0.0"
+    },
+    {
+      "name": "puppetlabs/concat",
+      "version_requirement": ">= 1.2.3"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.5.0 < 5.0.0"
+    }
   ],
   "requirements": [
-    { "name": "puppet", "version_requirement": ">= 2.7.0 < 5.0.0" }
+    {
+      "name": "puppet",
+      "version_requirement": ">= 2.7.0 < 5.0.0"
+    }
   ],
   "operatingsystem_support": [
-    { "operatingsystem": "Windows", "operatingsystemrelease": [ "7", "2012 R2" ] }
+    {
+      "operatingsystem": "Windows",
+      "operatingsystemrelease": [
+        "7",
+        "2012 R2"
+      ]
+    }
   ]
 }
