@@ -8,11 +8,15 @@
 # Resulting output:
 #
 define nxlog::config::extension (
-  $conf_dir        = $::nxlog::conf_dir,
-  $conf_file       = $::nxlog::conf_file,
-  $ext_module      = $::nxlog::ext_module,
-  $ext_options     = $::nxlog::ext_options,
-  $order_extension = $::nxlog::order_extension,) {
+  $conf_dir        = lookup('nxlog::conf_dir'),
+  $conf_file       = lookup('nxlog::conf_file'),
+  $ext_module      = lookup('nxlog::ext_module'),
+  $ext_options     = lookup('nxlog::ext_options'),
+  $order_extension = lookup('nxlog::order_extension'),
+  ) {
+
+  require ::nxlog
+
   concat::fragment { "extension_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_extension,

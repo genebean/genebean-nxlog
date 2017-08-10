@@ -1,0 +1,30 @@
+---
+nxlog::conf_dir:
+nxlog::conf_file:
+nxlog::ensure_setting: latest
+nxlog::ext_module:
+nxlog::ext_options:
+nxlog::input_execs: []
+nxlog::input_module:
+nxlog::input_file_path:
+nxlog::input_type:
+nxlog::nxlog_root:
+nxlog::output_address:
+nxlog::output_execs: []
+nxlog::output_file_path:
+nxlog::output_module:
+nxlog::output_options:
+nxlog::output_port:
+nxlog::package_name: 'nxlog'
+nxlog::processor_module:
+nxlog::processor_input_format:
+nxlog::processor_output_format:
+nxlog::processor_csv_output_fields: []
+nxlog::route_destination:
+nxlog::route_source:
+nxlog::order_header: '01'
+nxlog::order_extension: '05'
+nxlog::order_input: '10'
+nxlog::order_processor: '30'
+nxlog::order_output: '40'
+nxlog::order_route: '90'

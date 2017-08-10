@@ -1,16 +1,12 @@
 # Controls the NXLog service
-class nxlog::service (
-  $conf_dir   = $::nxlog::conf_dir,
-  $conf_file  = $::nxlog::conf_file,
-  $ensure_setting = $::nxlog::ensure_setting,
-  ) {
-  case $::kernel {
+class nxlog::service inherits nxlog {
+  case $facts['kernel'] {
     'Linux', 'Windows' : {
-      unless ($ensure_setting =~ /absent/) {
+      unless ($nxlog::ensure_setting =~ /absent/) {
         service { 'nxlog':
           ensure    => 'running',
           enable    => true,
-          subscribe => Concat["${conf_dir}/${conf_file}"],
+          subscribe => Concat["${nxlog::conf_dir}/${nxlog::conf_file}"],
         }
       }
     } # end Windows

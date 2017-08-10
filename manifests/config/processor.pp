@@ -19,14 +19,17 @@
 # Resulting output:
 #
 define nxlog::config::processor (
-  $conf_dir                    = $::nxlog::conf_dir,
-  $conf_file                   = $::nxlog::conf_file,
-  $order_processor             = $::nxlog::order_output,
-  $processor_module            = $::nxlog::processor_module,
-  $processor_input_format      = $::nxlog::processor_input_format,
-  $processor_output_format     = $::nxlog::processor_output_format,
-  $processor_csv_output_fields = $::nxlog::processor_csv_output_fields,
+  $conf_dir                    = lookup('nxlog::conf_dir'),
+  $conf_file                   = lookup('nxlog::conf_file'),
+  $order_processor             = lookup('nxlog::order_output'),
+  $processor_module            = lookup('nxlog::processor_module'),
+  $processor_input_format      = lookup('nxlog::processor_input_format'),
+  $processor_output_format     = lookup('nxlog::processor_output_format'),
+  $processor_csv_output_fields = lookup('nxlog::processor_csv_output_fields'),
   ) {
+
+  require ::nxlog
+
   $processor_template = $processor_module ? {
     'pm_transformer' => 'nxlog/processor/transformer.erb',
     default          => undef,
