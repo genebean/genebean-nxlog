@@ -1,8 +1,9 @@
 require 'rubygems'
+require 'metadata-json-lint/rake_task'
 require 'puppetlabs_spec_helper/rake_tasks'
 require 'puppet_blacksmith/rake_tasks'
 require 'puppet-lint/tasks/puppet-lint'
-require 'metadata-json-lint/rake_task'
+require 'puppet-syntax/tasks/puppet-syntax'
 require 'yamllint/rake_task'
 
 exclude_paths = [
@@ -19,7 +20,13 @@ end
 
 PuppetLint.configuration.send('disable_spaceship_operator_without_tag')
 
+PuppetSyntax.check_hiera_keys = true
 PuppetSyntax.exclude_paths = exclude_paths
+PuppetSyntax.hieradata_paths = [
+  "**/data/**/*.yaml",
+  "hieradata/**/*.yaml",
+  "hiera*.yaml"
+]
 
 desc 'Validate manifests, templates, and ruby files'
 task :validate do
@@ -39,7 +46,7 @@ end #
 
 desc 'Run lint, validate, and spec tests.'
 task :tests do
-  [:lint, :validate, :spec].each do |test|
+  [:lint, :syntax, :validate, :spec].each do |test|
     Rake::Task[test].invoke
   end
 end
