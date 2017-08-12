@@ -15,7 +15,7 @@ group :development, :unit_tests do
   gem 'puppet',                  puppetversion
   gem 'puppet-syntax',           '~> 2.4'
   gem 'puppetlabs_spec_helper',  '~> 2.2'
-  gem 'rspec-puppet',            '~> 2.6'
+  gem 'rspec-puppet',            '2.5.0'
   gem 'rspec-puppet-facts',      '~> 1.8'
   gem 'semantic_puppet',         '~> 1.0'
   gem 'syck',                    '>= 1.3.0'

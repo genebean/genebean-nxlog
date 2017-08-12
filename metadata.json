@@ -34,7 +34,7 @@
   ],
   "operatingsystem_support": [
     {
-      "operatingsystem": "Windows",
+      "operatingsystem": "windows",
       "operatingsystemrelease": [
         "7",
         "2012 R2"
