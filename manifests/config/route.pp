@@ -15,8 +15,6 @@ define nxlog::config::route (
   $conf_dir          = lookup('nxlog::conf_dir'),
   $conf_file         = lookup('nxlog::conf_file'),
   $order_route       = lookup('nxlog::order_route'),
-  $route_destination = lookup('nxlog::route_destination'),
-  $route_source      = lookup('nxlog::route_source'),
   ) {
 
   require ::nxlog

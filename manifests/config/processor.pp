@@ -23,8 +23,6 @@ define nxlog::config::processor (
   $conf_file                   = lookup('nxlog::conf_file'),
   $order_processor             = lookup('nxlog::order_output'),
   $processor_module            = lookup('nxlog::processor_module'),
-  $processor_input_format      = lookup('nxlog::processor_input_format'),
-  $processor_output_format     = lookup('nxlog::processor_output_format'),
   $processor_csv_output_fields = lookup('nxlog::processor_csv_output_fields'),
   ) {
 

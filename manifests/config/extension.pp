@@ -10,8 +10,6 @@
 define nxlog::config::extension (
   $conf_dir        = lookup('nxlog::conf_dir'),
   $conf_file       = lookup('nxlog::conf_file'),
-  $ext_module      = lookup('nxlog::ext_module'),
-  $ext_options     = lookup('nxlog::ext_options'),
   $order_extension = lookup('nxlog::order_extension'),
   ) {
 

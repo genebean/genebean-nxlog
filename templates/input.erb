@@ -1,15 +1,15 @@
 <%# Add a blank line before this block %>
 <Input <%= @name %>>
-  Module      <%= @input_module -%>
-  <%- if @input_execs -%>
-    <%- @input_execs.each do |exec| %>
+  Module      <%= scope['nxlog::input_module'] -%>
+  <%- if scope['nxlog::input_execs'] -%>
+    <%- scope['nxlog::input_execs'].each do |exec| %>
   Exec        <%= "#{exec};" -%>
     <%- end -%>
   <%- end %>
-  <%- if @input_file_path -%>
-  File        <%= "'#{@input_file_path}'" %>
+  <%- if scope['nxlog::input_file_path'] -%>
+  File        '<%= scope['nxlog::input_file_path'] %>'
   <%- end %>
-  <%- if @input_type -%>
-  InputType   <%= "'#{@input_type}'" %>
+  <%- if scope['nxlog::input_type'] -%>
+  InputType   '<%= scope['nxlog::input_type'] %>' %>
   <%- end %>
 </Input>

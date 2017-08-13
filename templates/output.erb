@@ -1,18 +1,20 @@
 <%# Add a blank line before this block %>
 <Output <%= @name %>>
-  Module      <%= @output_module %>
-  <%- if @output_file_path -%>
-  File        <%= "'#{@output_file_path}'" %>
-  <%- elsif @output_address -%>
-  Host        <%= @output_address %>
+  Module      <%= scope['nxlog::output_module'] %>
+  <%- if scope['nxlog::output_file_path'] -%>
+  File        '<%= scope['nxlog::output_file_path'] %>'
+  <%- elsif scope['nxlog::output_address'] -%>
+  Host        <%= scope['nxlog::output_address'] %>
   <%- end -%>
-  <%- if @output_address && @output_port -%>
-  Port        <%= @output_port %>
+  <%- if scope['nxlog::output_address'] && scope['nxlog::output_port'] -%>
+  Port        <%= scope['nxlog::output_port'] %>
   <%- end -%>
-  <%- if @output_execs -%>
-    <%- @output_execs.each do |exec| %>
+  <%- if scope['nxlog::output_execs'] -%>
+    <%- scope['nxlog::output_execs'].each do |exec| %>
   Exec        <%= "#{exec};" -%>
     <%- end -%>
   <%- end %>
-<% [*@output_options].each do |output_option| -%><%="  #{output_option}" %>
+<% if scope['nxlog::output_options'] %>
+<% scope['nxlog::output_options'].each do |output_option| -%><%="  #{output_option}" %>
+<% end %>
 <% end %></Output>
