@@ -1,6 +1,6 @@
 {
   "name": "genebean-nxlog",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "author": "Gene Liverman",
   "summary": "This module manages NXLog",
   "license": "BSD-3-Clause",
@@ -14,7 +14,7 @@
   ],
   "dependencies": [
     {
-      "name": "chocolatey/chocolatey",
+      "name": "puppetlabs/chocolatey",
       "version_requirement": ">= 1.0.0"
     },
     {

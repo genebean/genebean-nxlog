@@ -10,17 +10,16 @@ group :development, :unit_tests do
     gem 'CFPropertyList',        '~> 2.3'
   end
 
-  gem 'json',                    '>= 2.0.2'
-  gem 'json_pure',               '>= 2.0.2'
+  gem 'coveralls',               require: false
   gem 'metadata-json-lint',      '~> 2.0'
   gem 'puppet',                  puppetversion
+  gem 'puppet-syntax',           '~> 2.4'
   gem 'puppetlabs_spec_helper',  '~> 2.2'
   gem 'rspec-puppet',            '~> 2.6'
   gem 'rspec-puppet-facts',      '~> 1.8'
   gem 'semantic_puppet',         '~> 1.0'
   gem 'syck',                    '>= 1.3.0'
   gem 'yamllint',                '~> 0.0.9'
-  gem 'coveralls',               require: false
 
   # puppet-lint and plugins
   gem 'puppet-lint',                                      '~> 2.2'

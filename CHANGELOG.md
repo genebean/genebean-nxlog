@@ -1,5 +1,9 @@
 [![GitHub tag][gh-tag-img]][gh-link]
 
+## 2017-10-11 - Release 1.4.2  
+- Updated dependencies so the puppetlabs version of the chocolatey module is used
+- Updated testing related files
+
 ## 2017-08-06 - Release 1.4.1  
 - First run at using modulesync
 - Stopped testing against Puppet 3
