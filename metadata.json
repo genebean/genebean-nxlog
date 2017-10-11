@@ -1,6 +1,6 @@
 {
   "name": "genebean-nxlog",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "author": "Gene Liverman",
   "summary": "This module manages NXLog",
   "license": "BSD-3-Clause",
