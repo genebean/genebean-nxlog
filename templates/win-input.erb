@@ -1,0 +1,17 @@
+<%# Add a blank line before this block %>
+<Input <%= @name %>>
+  Module      <%= @input_module -%>
+  <%- if @input_execs -%>
+    <%- @input_execs.each do |exec| %>
+  Exec        <%= "#{exec};" -%>
+    <%- end -%>
+  <%- end %>
+  <%- if @input_file_path -%>
+  File        <%= "'#{@input_file_path}'" %>
+  <%- end %>
+  <%- if @input_type -%>
+  InputType   <%= "'#{@input_type}'" %>
+  <%- end %>
+<% [*@input_options].each do |input_option| -%><%="  #{input_option}" %>
+<% end %>
+</Input>

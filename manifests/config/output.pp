@@ -23,11 +23,12 @@ define nxlog::config::output (
   $output_file_path = $::nxlog::output_file_path,
   $output_module    = $::nxlog::output_module,
   $output_options   = $::nxlog::output_options,
-  $output_port      = $::nxlog::output_port,) {
-
+  $output_template  = $::nxlog::output_template,
+  $output_port      = $::nxlog::output_port,
+  ) {
   concat::fragment { "output_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_output,
-    content => template('nxlog/output.erb'),
+    content => template($output_template),
   }
 }
