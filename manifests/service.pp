@@ -13,7 +13,7 @@ class nxlog::service inherits nxlog {
 
     default            : {
       # lint:ignore:80chars
-      fail("The NXLog module is not yet supported on this ${::operatingsystem}")
+      fail("The NXLog module is not yet supported on ${facts['os']['name']}")
       # lint:endignore
     }
 
