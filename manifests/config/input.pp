@@ -22,6 +22,6 @@ define nxlog::config::input (
   concat::fragment { "input_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_input,
-    content => template('nxlog/input.erb'),
+    content => epp('nxlog/input.epp'),
   }
 }

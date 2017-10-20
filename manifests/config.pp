@@ -7,7 +7,7 @@ class nxlog::config inherits nxlog {
 
   concat::fragment { 'conf_header':
     target  => "${nxlog::conf_dir}/${nxlog::conf_file}",
-    content => template('nxlog/header.erb'),
+    content => epp('nxlog/header.epp'),
     order   => '01',
   }
 

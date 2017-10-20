@@ -1,7 +1,0 @@
-<%# Add a blank line before this block %>
-<Extension <%= @name %>>
-  Module      <%= scope['nxlog::ext_module'] %>
-<% if scope['nxlog::ext_options'] %>
-<% scope['nxlog::ext_options'].each do |ext_option| -%><%="  #{ext_option}" %>
-<% end %>
-<% end %></Extension>

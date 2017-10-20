@@ -1,0 +1,21 @@
+<%# Add a blank line before this block %>
+<Output <%= $name %>>
+  Module      <%= $nxlog::output_module %>
+  <%- if $nxlog::output_file_path { -%>
+  File        '<%= $nxlog::output_file_path %>'
+  <%- } elsif $nxlog::output_address { -%>
+  Host        <%= $nxlog::output_address -%>
+  <% } %>
+  <%- if $nxlog::output_address and $nxlog::output_port { -%>
+  Port        <%= $nxlog::output_port -%>
+  <% } -%>
+  <%- if $nxlog::output_execs { -%>
+    <%- $nxlog::output_execs.each  |$exec| { %>
+  Exec        <%= "$exec;" -%>
+    <% } -%>
+  <% } -%>
+<%- if $nxlog::output_options { %>
+<%- $nxlog::output_options.each  |$output_option| { -%><%="  $output_option" %>
+<% } -%>
+<% } %>
+</Output>

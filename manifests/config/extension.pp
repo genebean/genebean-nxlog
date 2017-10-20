@@ -18,6 +18,6 @@ define nxlog::config::extension (
   concat::fragment { "extension_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_extension,
-    content => template('nxlog/extension.erb'),
+    content => epp('nxlog/extension.epp'),
   }
 }

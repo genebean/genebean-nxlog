@@ -10,12 +10,12 @@
 ## Please set the ROOT to the folder your nxlog was installed into,
 ## otherwise it will not start.
 
-<%- if @nxlog_root -%>
-define ROOT <%= @nxlog_root %>
+<% if $nxlog::nxlog_root { -%>
+define ROOT <%= $nxlog::nxlog_root %>
+<% } -%>
 
 Moduledir %ROOT%\modules
 CacheDir %ROOT%\data
 Pidfile %ROOT%\data\nxlog.pid
 SpoolDir %ROOT%\data
 LogFile %ROOT%\data\nxlog.log
-<%- end %>

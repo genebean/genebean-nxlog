@@ -1,0 +1,7 @@
+<%# Add a blank line before this block %>
+<Extension <%= $name %>>
+  Module      <%= $nxlog::ext_module %>
+<% if $nxlog::ext_options { -%>
+<% $nxlog::ext_options.each |$ext_option| { -%><%="  $ext_option" %>
+<% } -%>
+<% } -%></Extension>
