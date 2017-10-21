@@ -1,9 +1,9 @@
 <%# Add a blank line before this block %>
 <Processor <%= @name %>>
-    Module          <%= @processor_module %>
-    <%- if @processor_input_format %>
-    InputFormat     <%= @processor_input_format %><% end %>
-    OutputFormat    <%= @processor_output_format %>
-    <%- if @processor_csv_output_fields -%>
-    CSVOutputFields <%= @processor_csv_output_fields.join(', ') %><% end %>
+    Module          <%= scope['nxlog::processor_module'] %>
+    <%- if scope['nxlog::processor_input_format'] %>
+    InputFormat     <%= scope['nxlog::processor_input_format'] %><% end %>
+    OutputFormat    <%= scope['nxlog::processor_output_format'] %>
+    <%- if scope['nxlog::processor_csv_output_fields'] -%>
+    CSVOutputFields <%= scope['nxlog::processor_csv_output_fields'].join(', ') %><% end %>
 </Processor>

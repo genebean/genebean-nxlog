@@ -1,4 +1,4 @@
 <%# Add a blank line before this block %>
 <Route <%= @name %>>
-  Path        <%= @route_source.join(",") %> => <%= @route_destination.join(",") %>
+  Path        <%= scope['nxlog::route_source'].join(",") %> => <%= scope['nxlog::route_destination'].join(",") %>
 </Route>

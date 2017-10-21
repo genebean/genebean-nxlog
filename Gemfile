@@ -1,7 +1,7 @@
 # vim:ft=ruby
 source ENV['GEM_SOURCE'] || 'https://rubygems.org'
 
-puppetversion = ENV.key?('PUPPET_VERSION') ? ENV['PUPPET_VERSION'] : ['~> 5.0']
+puppetversion = ENV.key?('PUPPET_VERSION') ? ENV['PUPPET_VERSION'] : ['~> 5.3']
 
 group :development, :unit_tests do
   if puppetversion =~ / 4\./
@@ -14,7 +14,7 @@ group :development, :unit_tests do
   gem 'metadata-json-lint',      '~> 2.0'
   gem 'puppet',                  puppetversion
   gem 'puppet-syntax',           '~> 2.4'
-  gem 'puppetlabs_spec_helper',  '~> 2.2'
+  gem 'puppetlabs_spec_helper',  '~> 2.3'
   gem 'rspec-puppet',            '~> 2.6'
   gem 'rspec-puppet-facts',      '~> 1.8'
   gem 'semantic_puppet',         '~> 1.0'
@@ -22,11 +22,13 @@ group :development, :unit_tests do
   gem 'yamllint',                '~> 0.0.9'
 
   # puppet-lint and plugins
-  gem 'puppet-lint',                                      '~> 2.2'
+  gem 'puppet-lint',                                      '~> 2.3'
   gem 'puppet-lint-absolute_classname-check',             '~> 0.2'
   gem 'puppet-lint-absolute_template_path',               '~> 1.0'
   gem 'puppet-lint-empty_string-check',                   '~> 0.2'
+  gem 'puppet-lint-file_ensure-check',                    '~> 0.3'
   gem 'puppet-lint-leading_zero-check',                   '~> 0.1'
+  gem 'puppet-lint-legacy_facts-check',                   '~> 0.0'
   gem 'puppet-lint-resource_reference_syntax',            '~> 1.0'
   gem 'puppet-lint-spaceship_operator_without_tag-check', '~> 0.1'
   gem 'puppet-lint-trailing_newline-check',               '~> 1.1'

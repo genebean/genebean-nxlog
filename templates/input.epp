@@ -1,0 +1,15 @@
+<%# Add a blank line before this block %>
+<Input <%= $name %>>
+  Module      <%= $nxlog::input_module -%>
+  <%- if $nxlog::input_execs { -%>
+    <%- $nxlog::input_execs.each |$exec| { %>
+  Exec        <%= "$exec;" -%>
+    <%- } -%>
+  <%- } %>
+  <%- if $nxlog::input_file_path { -%>
+  File        '<%= $nxlog::input_file_path %>'
+  <%- } -%>
+  <%- if $nxlog::input_type { -%>
+  InputType   '<%= $nxlog::input_type %>'
+  <%- } -%>
+</Input>

@@ -8,9 +8,12 @@ require 'yamllint/rake_task'
 
 exclude_paths = [
   "pkg/**/*",
+  "plans/**/*",
   "vendor/**/*",
   "spec/**/*",
 ]
+
+MetadataJsonLint.options.strict_dependencies = false
 
 PuppetLint::RakeTask.new :lint do |config|
   config.fail_on_warnings = true
@@ -28,25 +31,16 @@ PuppetSyntax.hieradata_paths = [
   "hiera*.yaml"
 ]
 
-desc 'Validate manifests, templates, and ruby files'
-task :validate do
-  Dir['manifests/**/*.pp'].each do |manifest|
-    sh "puppet parser validate --noop #{manifest}"
-  end
-  Dir['templates/**/*.epp'].each do |template|
-    sh "puppet epp validate #{template}"
-  end
-  Dir['spec/**/*.rb', 'lib/**/*.rb'].each do |ruby_file|
+desc 'Validate files in the spec directory'
+task :validate_spec_files do
+  Dir['spec/**/*.rb'].each do |ruby_file|
     sh "ruby -c #{ruby_file}" unless ruby_file =~ %r{spec/fixtures}
   end
-  Dir['templates/**/*.erb'].each do |template|
-    sh "erb -P -x -T '-' #{template} | ruby -c"
-  end
-end #
+end
 
 desc 'Run lint, validate, and spec tests.'
 task :tests do
-  [:lint, :syntax, :validate, :spec].each do |test|
+  [:lint, :syntax, :validate, :validate_spec_files, :spec].each do |test|
     Rake::Task[test].invoke
   end
 end

@@ -12,16 +12,16 @@
 # Resulting output:
 #
 define nxlog::config::input (
-  $conf_dir        = $::nxlog::conf_dir,
-  $conf_file       = $::nxlog::conf_file,
-  $input_execs     = $::nxlog::input_execs,
-  $input_file_path = $::nxlog::input_file_path,
-  $input_module    = $::nxlog::input_module,
-  $input_type      = $::nxlog::input_type,
-  $order_input     = $::nxlog::order_input,) {
+  $conf_dir        = lookup('nxlog::conf_dir'),
+  $conf_file       = lookup('nxlog::conf_file'),
+  $order_input     = lookup('nxlog::order_input'),
+  ) {
+
+  require ::nxlog
+
   concat::fragment { "input_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_input,
-    content => template('nxlog/input.erb'),
+    content => epp('nxlog/input.epp'),
   }
 }

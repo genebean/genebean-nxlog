@@ -15,19 +15,16 @@
 # Resulting output:
 #
 define nxlog::config::output (
-  $conf_dir         = $::nxlog::conf_dir,
-  $conf_file        = $::nxlog::conf_file,
-  $order_output     = $::nxlog::order_output,
-  $output_address   = $::nxlog::output_address,
-  $output_execs     = $::nxlog::output_execs,
-  $output_file_path = $::nxlog::output_file_path,
-  $output_module    = $::nxlog::output_module,
-  $output_options   = $::nxlog::output_options,
-  $output_port      = $::nxlog::output_port,) {
+  $conf_dir         = lookup('nxlog::conf_dir'),
+  $conf_file        = lookup('nxlog::conf_file'),
+  $order_output     = lookup('nxlog::order_output'),
+  ) {
+
+  require ::nxlog
 
   concat::fragment { "output_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_output,
-    content => template('nxlog/output.erb'),
+    content => epp('nxlog/output.epp'),
   }
 }
