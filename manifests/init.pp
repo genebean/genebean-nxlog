@@ -11,6 +11,7 @@ class nxlog (
   $input_execs                 = $::nxlog::params::input_execs,
   $input_file_path             = $::nxlog::params::input_file_path,
   $input_module                = $::nxlog::params::input_module,
+  $input_options               = $::nxlog::params::input_options,
   $input_type                  = $::nxlog::params::input_type,
   $nxlog_root                  = $::nxlog::params::nxlog_root,
   $order_extension             = $::nxlog::params::order_extension,
