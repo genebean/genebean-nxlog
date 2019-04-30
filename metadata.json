@@ -7,29 +7,18 @@
   "source": "https://github.com:genebean/genebean-nxlog.git",
   "project_page": "https://github.com/genebean/genebean-nxlog",
   "issues_url": "https://github.com/genebean/genebean-nxlog/issues",
-  "tags": [
-    "logging",
-    "nxlog",
-    "eventlog"
-  ],
   "dependencies": [
     {
       "name": "puppetlabs/chocolatey",
-      "version_requirement": ">= 1.0.0"
+      "version_requirement": ">= 3.0.0 < 4.0.0"
     },
     {
       "name": "puppetlabs/concat",
-      "version_requirement": ">= 1.2.3"
+      "version_requirement": ">= 5.0.0 < 6.0.0"
     },
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">= 4.5.0 < 5.0.0"
-    }
-  ],
-  "requirements": [
-    {
-      "name": "puppet",
-      "version_requirement": ">= 2.7.0 < 5.0.0"
+      "version_requirement": ">= 5.0.0 < 6.0.0"
     }
   ],
   "operatingsystem_support": [
@@ -40,5 +29,19 @@
         "2012 R2"
       ]
     }
-  ]
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 5.0.0 < 7.0.0"
+    }
+  ],
+  "tags": [
+    "logging",
+    "nxlog",
+    "eventlog"
+  ],
+  "pdk-version": "1.10.0",
+  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git#1.10.0",
+  "template-ref": "1.10.0-0-gbba9ac3"
 }

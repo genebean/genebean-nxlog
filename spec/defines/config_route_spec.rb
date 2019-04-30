@@ -1,15 +1,13 @@
 require 'spec_helper'
 
-describe 'nxlog::config::route', :type => :define do
-
+describe 'nxlog::config::route', type: :define do
   context 'On Windows' do
-
     let :facts do
       {
-          :kernel          => 'windows',
-          :osfamily        => 'windows',
-          :operatingsystem => 'windows',
-          :concat_basedir  => File.join(Puppet[:vardir],"concat")
+        kernel: 'windows',
+        osfamily: 'windows',
+        operatingsystem: 'windows',
+        concat_basedir: File.join(Puppet[:vardir], 'concat'),
       }
     end
 
@@ -27,9 +25,9 @@ describe 'nxlog::config::route', :type => :define do
       let(:title) { 'remote' }
 
       describe 'builds Route section for the config file which' do
-        it { should contain_concat__fragment('route_remote').with_content(/<Route remote>/) }
-        it { should contain_concat__fragment('route_remote').with_content(/\s\sPath\s+eventlog_json\s=>\slogserver/) }
-        it { should contain_concat__fragment('route_remote').with_content(/<\/Route>/) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{<Route remote>}) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{\s\sPath\s+eventlog_json\s=>\slogserver}) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{</Route>}) }
       end
     end
 
@@ -47,9 +45,9 @@ describe 'nxlog::config::route', :type => :define do
       let(:title) { 'remote' }
 
       describe 'builds Route section for the config file which' do
-        it { should contain_concat__fragment('route_remote').with_content(/<Route remote>/) }
-        it { should contain_concat__fragment('route_remote').with_content(/\s\sPath\s+eventlog_json\s=>\slogserver,local_file/) }
-        it { should contain_concat__fragment('route_remote').with_content(/<\/Route>/) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{<Route remote>}) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{\s\sPath\s+eventlog_json\s=>\slogserver,local_file}) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{</Route>}) }
       end
     end
 
@@ -67,9 +65,9 @@ describe 'nxlog::config::route', :type => :define do
       let(:title) { 'remote' }
 
       describe 'builds Route section for the config file which' do
-        it { should contain_concat__fragment('route_remote').with_content(/<Route remote>/) }
-        it { should contain_concat__fragment('route_remote').with_content(/\s\sPath\s+eventlog_json,app_log\s=>\slogserver/) }
-        it { should contain_concat__fragment('route_remote').with_content(/<\/Route>/) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{<Route remote>}) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{\s\sPath\s+eventlog_json,app_log\s=>\slogserver}) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{</Route>}) }
       end
     end
 
@@ -87,12 +85,10 @@ describe 'nxlog::config::route', :type => :define do
       let(:title) { 'remote' }
 
       describe 'builds a Route section for the config file which' do
-        it { should contain_concat__fragment('route_remote').with_content(/<Route remote>/) }
-        it { should contain_concat__fragment('route_remote').with_content(/\s\sPath\s+eventlog_json,app_log\s=>\slogserver,local_file/) }
-        it { should contain_concat__fragment('route_remote').with_content(/<\/Route>/) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{<Route remote>}) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{\s\sPath\s+eventlog_json,app_log\s=>\slogserver,local_file}) }
+        it { is_expected.to contain_concat__fragment('route_remote').with_content(%r{</Route>}) }
       end
     end
-
   end
-
 end

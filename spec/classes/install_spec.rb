@@ -1,14 +1,13 @@
 require 'spec_helper'
 
 describe 'nxlog::install' do
-
   context 'On a RedHat OS' do
     let :facts do
       {
-          :kernel          => 'Linux',
-          :osfamily        => 'RedHat',
-          :operatingsystem => 'RedHat',
-          :concat_basedir  => File.join(Puppet[:vardir],"concat")
+        kernel: 'Linux',
+        osfamily: 'RedHat',
+        operatingsystem: 'RedHat',
+        concat_basedir: File.join(Puppet[:vardir], 'concat'),
       }
     end
 
@@ -21,14 +20,14 @@ describe 'nxlog::install' do
         }"
       end
 
-      it 'should install the latest version of NXLog by default' do
-        should contain_package('nxlog-ce').with(
-                   'ensure' => 'latest',
-               )
+      it 'installs the latest version of NXLog by default' do
+        is_expected.to contain_package('nxlog-ce').with(
+          'ensure' => 'latest',
+        )
       end
 
-      it "should use '/opt/nxlog/etc/nxlog/conf/nxlog.conf' as it's config file" do
-        should contain_concat('/opt/nxlog/etc/nxlog/conf/nxlog.conf')
+      it "uses '/opt/nxlog/etc/nxlog/conf/nxlog.conf' as it's config file" do
+        is_expected.to contain_concat('/opt/nxlog/etc/nxlog/conf/nxlog.conf')
       end
     end
 
@@ -43,22 +42,21 @@ describe 'nxlog::install' do
         }"
       end
 
-      it 'should install the custom version of NXLog wit ensure => present' do
-        should contain_package('nxlog-custom-build').with(
-                   'ensure' => 'present',
-               )
+      it 'installs the custom version of NXLog wit ensure => present' do
+        is_expected.to contain_package('nxlog-custom-build').with(
+          'ensure' => 'present',
+        )
       end
     end
-
   end
 
   context 'On Windows' do
     let :facts do
       {
-          :kernel          => 'windows',
-          :osfamily        => 'windows',
-          :operatingsystem => 'windows',
-          :concat_basedir  => File.join(Puppet[:vardir],"concat")
+        kernel: 'windows',
+        osfamily: 'windows',
+        operatingsystem: 'windows',
+        concat_basedir: File.join(Puppet[:vardir], 'concat'),
       }
     end
 
@@ -70,16 +68,15 @@ describe 'nxlog::install' do
       }"
     end
 
-    it 'should install the latest version of NXLog by default' do
-      should contain_package('nxlog').with(
-                 'ensure'   => 'latest',
-                 'provider' => 'chocolatey',
-             )
+    it 'installs the latest version of NXLog by default' do
+      is_expected.to contain_package('nxlog').with(
+        'ensure'   => 'latest',
+        'provider' => 'chocolatey',
+      )
     end
 
-    it "should use 'C:/nxlog/conf/nxlog.conf' as it's config file" do
-      should contain_concat('C:/nxlog/conf/nxlog.conf')
+    it "uses 'C:/nxlog/conf/nxlog.conf' as it's config file" do
+      is_expected.to contain_concat('C:/nxlog/conf/nxlog.conf')
     end
   end
-
 end
