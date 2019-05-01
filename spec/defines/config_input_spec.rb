@@ -52,7 +52,7 @@ describe 'nxlog::config::input', type: :define do
         it { is_expected.to contain_concat__fragment('input_logfile').with_content(%r{<Input logfile>}) }
         it { is_expected.to contain_concat__fragment('input_logfile').with_content(%r{\s\sModule\s+im_file}) }
         it { is_expected.to contain_concat__fragment('input_logfile').with_content(%r{\s\sFile\s+'C:/logfile\.log'}) }
-        it { is_expected.to contain_concat__fragment('input_logfile').with_content(%r{\s\sInputType\s+'multiline'}) }
+        it { is_expected.to contain_concat__fragment('input_logfile').with_content(%r{\s\sInputType\s+multiline}) }
         it { is_expected.to contain_concat__fragment('input_logfile').with_content(%r{</Input>}) }
       end
     end

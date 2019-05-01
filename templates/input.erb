@@ -10,6 +10,7 @@
   File        <%= "'#{@input_file_path}'" %>
   <%- end %>
   <%- if @input_type -%>
-  InputType   <%= "'#{@input_type}'" %>
+  InputType   <%= @input_type %>
   <%- end %>
-</Input>
+  <% [*@input_options].each do |input_option| -%><%="#{input_option}" %>
+<% end %></Input>
