@@ -1,10 +1,10 @@
 # Controls the NXLog service
 class nxlog::service (
-  $conf_dir   = $::nxlog::conf_dir,
-  $conf_file  = $::nxlog::conf_file,
+  $conf_dir   = $nxlog::conf_dir,
+  $conf_file  = $nxlog::conf_file,
   $ensure_setting = $nxlog::ensure_setting,
   ) {
-  case $::kernel {
+  case $facts['kernel'] {
     'Linux', 'Windows' : {
       unless ($ensure_setting =~ /absent/) {
         service { 'nxlog':
@@ -17,9 +17,9 @@ class nxlog::service (
 
     default            : {
       # lint:ignore:80chars
-      fail("The NXLog module is not yet supported on this ${::operatingsystem}")
+      fail("The NXLog module is not yet supported on ${facts['os']['name']}")
       # lint:endignore
     }
 
-  } # end $::operatingsystem case
+  } # end $facts['kernel'] case
 } # end class
