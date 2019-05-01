@@ -3,10 +3,10 @@ require 'spec_helper'
 describe 'nxlog' do
   let :facts do
     {
-        :kernel          => 'windows',
-        :osfamily        => 'windows',
-        :operatingsystem => 'windows',
-        :concat_basedir  => File.join(Puppet[:vardir],"concat")
+      kernel: 'windows',
+      osfamily: 'windows',
+      operatingsystem: 'windows',
+      concat_basedir: File.join(Puppet[:vardir], 'concat'),
     }
   end
 
@@ -18,24 +18,23 @@ describe 'nxlog' do
       }"
   end
 
-  it { should contain_class('nxlog').with(
-                  'ensure_setting'  => 'latest',
-                  'input_execs'     => [],
-                  'order_header'    => '01',
-                  'order_extension' => '05',
-                  'order_input'     => '10',
-                  'order_output'    => '40',
-                  'order_route'     => '90'
-              )
+  it {
+    is_expected.to contain_class('nxlog').with(
+      'ensure_setting'  => 'latest',
+      'input_execs'     => [],
+      'order_header'    => '01',
+      'order_extension' => '05',
+      'order_input'     => '10',
+      'order_output'    => '40',
+      'order_route'     => '90',
+    )
   }
 
   # Check that all classes are present
-  it { should contain_class('nxlog::params') }
-  it { should contain_anchor('::nxlog::start') }
-  it { should contain_class('nxlog::install') }
-  it { should contain_class('nxlog::config') }
-  it { should contain_class('nxlog::service') }
-  it { should contain_anchor('::nxlog::end') }
-
-
+  it { is_expected.to contain_class('nxlog::params') }
+  it { is_expected.to contain_anchor('::nxlog::start') }
+  it { is_expected.to contain_class('nxlog::install') }
+  it { is_expected.to contain_class('nxlog::config') }
+  it { is_expected.to contain_class('nxlog::service') }
+  it { is_expected.to contain_anchor('::nxlog::end') }
 end

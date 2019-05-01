@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe 'nxlog::config::processor', :type => :define do
+describe 'nxlog::config::processor', type: :define do
   context 'On Windows' do
     let :facts do
       {
-          :kernel          => 'windows',
-          :osfamily        => 'windows',
-          :operatingsystem => 'windows',
-          :concat_basedir  => File.join(Puppet[:vardir],"concat")
+        kernel: 'windows',
+        osfamily: 'windows',
+        operatingsystem: 'windows',
+        concat_basedir: File.join(Puppet[:vardir], 'concat'),
       }
     end
 
@@ -31,17 +31,18 @@ describe 'nxlog::config::processor', :type => :define do
         }"
       end
 
-      let(:title) { 'transformer'}
+      let(:title) { 'transformer' }
 
+      # rubocop:disable Metrics/LineLength
       describe 'builds a Processor section for the config file which' do
-        it { should contain_concat__fragment('processor_transformer').with_content(/<Processor transformer>/) }
-        it { should contain_concat__fragment('processor_transformer').with_content(/\s\sModule\s+pm_transformer/) }
-        it { should contain_concat__fragment('processor_transformer').with_content(/\s\sInputFormat\s+syslog_rfc3164/) }
-        it { should contain_concat__fragment('processor_transformer').with_content(/\s\sOutputFormat\s+csv/) }
-        it { should contain_concat__fragment('processor_transformer').with_content(/\s\sCSVOutputFields\s+\$facility,\s\$severity,\s\$timestamp,\s\$hostname,\s\$application,\s\$pid,\s\$message/) }
-        it { should contain_concat__fragment('processor_transformer').with_content(/<\/Processor>/) }
+        it { is_expected.to contain_concat__fragment('processor_transformer').with_content(%r{<Processor transformer>}) }
+        it { is_expected.to contain_concat__fragment('processor_transformer').with_content(%r{\s\sModule\s+pm_transformer}) }
+        it { is_expected.to contain_concat__fragment('processor_transformer').with_content(%r{\s\sInputFormat\s+syslog_rfc3164}) }
+        it { is_expected.to contain_concat__fragment('processor_transformer').with_content(%r{\s\sOutputFormat\s+csv}) }
+        it { is_expected.to contain_concat__fragment('processor_transformer').with_content(%r{\s\sCSVOutputFields\s+\$facility,\s\$severity,\s\$timestamp,\s\$hostname,\s\$application,\s\$pid,\s\$message}) }
+        it { is_expected.to contain_concat__fragment('processor_transformer').with_content(%r{</Processor>}) }
       end
-
+      # rubocop:enable Metrics/LineLength
     end
 
     context 'with an unknown processor module' do
@@ -53,16 +54,13 @@ describe 'nxlog::config::processor', :type => :define do
         }"
       end
 
-      let(:title) { 'foo'}
+      let(:title) { 'foo' }
 
       it do
         expect {
-          should compile
-        }.to raise_error(/A template for foo has not been created yet./)
+          is_expected.to compile
+        }.to raise_error(%r{A template for foo has not been created yet.})
       end
-
     end
-
   end
-
 end

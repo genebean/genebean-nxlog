@@ -1,6 +1,7 @@
+![][pdk-link]
+![Puppet Forge][pf-v]
+![][pf-dl]
 [![Build Status][travis-img-master]][travis-ci]
-[![Puppet Forge][pf-img]][pf-link]
-[![GitHub tag][gh-tag-img]][gh-link]
 
 # nxlog
 
@@ -176,9 +177,8 @@ am happy to help with that part.
 
 
 [chocolatey]: https://chocolatey.org
-[gh-tag-img]: https://img.shields.io/github/tag/genebean/genebean-nxlog.svg
-[gh-link]: https://github.com/genebean/genebean-nxlog
-[pf-img]: https://img.shields.io/puppetforge/v/genebean/nxlog.svg
-[pf-link]: https://forge.puppetlabs.com/genebean/nxlog
+[pdk-link]: https://img.shields.io/puppetforge/pdk-version/ploperations/<MODULE-NAME>.svg?style=popout
+[pf-v]: https://img.shields.io/puppetforge/v/genebean/nxlog.svg?style=popout
+[pf-dl]: https://img.shields.io/puppetforge/dt/genebean/nxlog.svg?style=popout
 [travis-ci]: https://travis-ci.org/genebean/genebean-nxlog
-[travis-img-master]: https://img.shields.io/travis/genebean/genebean-nxlog/master.svg
+[travis-img-master]: https://travis-ci.org/genebean/genebean-nxlog.svg?branch=master

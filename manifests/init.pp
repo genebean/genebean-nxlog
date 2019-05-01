@@ -35,7 +35,9 @@ class nxlog (
   if ($nxlog_root) {
     validate_absolute_path($nxlog_root)
   }
-  validate_absolute_path($conf_dir)
+  unless ($ensure_setting =~ /absent/) {
+    validate_absolute_path($conf_dir)
+  }
   validate_string($conf_file)
 
   anchor { '::nxlog::start':

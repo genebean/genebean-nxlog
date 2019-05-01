@@ -2,7 +2,7 @@
 class nxlog::service (
   $conf_dir   = $::nxlog::conf_dir,
   $conf_file  = $::nxlog::conf_file,
-  $ensure_setting = $::nxlog::ensure_setting,
+  $ensure_setting = $nxlog::ensure_setting,
   ) {
   case $::kernel {
     'Linux', 'Windows' : {
