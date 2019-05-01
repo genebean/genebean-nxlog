@@ -27,16 +27,19 @@ group :development do
   gem "puppet-module-posix-dev-r#{minor_version}",                  require: false, platforms: [:ruby]
   gem "puppet-module-win-default-r#{minor_version}",                require: false, platforms: [:mswin, :mingw, :x64_mingw]
   gem "puppet-module-win-dev-r#{minor_version}",                    require: false, platforms: [:mswin, :mingw, :x64_mingw]
-  gem "puppet-lint-absolute_classname-check", '~> 0.2',             require: false
   gem "puppet-lint-absolute_template_path", '~> 1.0',               require: false
   gem "puppet-lint-empty_string-check", '~> 0.2',                   require: false
   gem "puppet-lint-leading_zero-check", '~> 0.1',                   require: false
+  gem "puppet-lint-legacy_facts-check", '~> 1.0',                   require: false
   gem "puppet-lint-resource_reference_syntax", '~> 1.0',            require: false
   gem "puppet-lint-spaceship_operator_without_tag-check", '~> 0.1', require: false
+  gem "puppet-lint-top_scope_facts-check", '~> 1.0',                require: false
+  gem "puppet-lint-trailing_comma-check", '~> 0.4',                 require: false
   gem "puppet-lint-trailing_newline-check", '~> 1.1',               require: false
   gem "puppet-lint-undef_in_function-check", '~> 0.2',              require: false
   gem "puppet-lint-unquoted_string-check", '~> 0.3',                require: false
   gem "puppet-lint-variable_contains_upcase", '~> 1.2',             require: false
+  gem "puppet-lint-version_comparison-check", '~> 0.2',             require: false
   gem "github_changelog_generator",                                 require: false, git: 'https://github.com/skywinder/github-changelog-generator', ref: '20ee04ba1234e9e83eb2ffb5056e23d641c7a018' if Gem::Version.new(RUBY_VERSION.dup) >= Gem::Version.new('2.2.2')
   gem "coveralls",                                                  require: false
 end

@@ -32,9 +32,9 @@ describe 'nxlog' do
 
   # Check that all classes are present
   it { is_expected.to contain_class('nxlog::params') }
-  it { is_expected.to contain_anchor('::nxlog::start') }
+  it { is_expected.to contain_anchor('nxlog::start') }
   it { is_expected.to contain_class('nxlog::install') }
   it { is_expected.to contain_class('nxlog::config') }
   it { is_expected.to contain_class('nxlog::service') }
-  it { is_expected.to contain_anchor('::nxlog::end') }
+  it { is_expected.to contain_anchor('nxlog::end') }
 end
