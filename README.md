@@ -117,17 +117,21 @@ name.
 `nxlog::config::input` - builds an Input section using the specified name.
 
 * `input_execs`  - an array of Exec statements to include (Optional)
-*	`input_file_path` - defines the path to use if reading from a local file
+* `input_file_path` - defines the path to use if reading from a local file
 * `input_module` - the name of the input module to use
 * `input_type` - the name of the registered input reader function to use
+* `input_recursive` - If set to True, this boolean directive specifies 
+  that a file path set in the parameter `input_file_path` should be 
+  searched recursively under sub-directories. Use it if you file path 
+  contains a wildcard
 
 `nxlog::config::output` - builds an Output section using the specified name.
 
 * `output_address`   - the address of the remote host to send data to
 * `output_execs`  - an array of Exec statements to include (Optional)
-*	`output_file_path` - defines the path to use if writing to a local file
+* `output_file_path` - defines the path to use if writing to a local file
 * `output_module`    - the name of the output module to use
-*	`output_port`      - the port on the remote host to send data to
+* `output_port`      - the port on the remote host to send data to
 
 `nxlog::config::processor` - builds a Processor section using the specified name.
 

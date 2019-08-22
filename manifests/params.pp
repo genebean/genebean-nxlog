@@ -9,6 +9,7 @@ class nxlog::params {
   $input_module                = undef
   $input_file_path             = undef
   $input_type                  = undef
+  $input_recursive             = undef
   $nxlog_root                  = undef
   $output_address              = undef
   $output_execs                = []
