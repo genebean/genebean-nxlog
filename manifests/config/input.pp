@@ -18,6 +18,7 @@ define nxlog::config::input (
   $input_file_path = $::nxlog::input_file_path,
   $input_module    = $::nxlog::input_module,
   $input_type      = $::nxlog::input_type,
+  $input_recursive = $::nxlog::input_recursive,
   $order_input     = $::nxlog::order_input,) {
   concat::fragment { "input_${name}":
     target  => "${conf_dir}/${conf_file}",
