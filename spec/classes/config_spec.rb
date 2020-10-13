@@ -35,7 +35,7 @@ describe 'nxlog::config' do
     it {
       is_expected.to contain_concat__fragment('conf_footer').with(
         'target'  => 'C:/nxlog/conf/nxlog.conf',
-        'content' => "\n",
+        'content' => "\r\n",
         'order'   => '99',
       )
     }
