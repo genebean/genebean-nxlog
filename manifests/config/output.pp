@@ -28,6 +28,6 @@ define nxlog::config::output (
   concat::fragment { "output_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_output,
-    content => template('nxlog/output.erb'),
+    content => unix2dos(template('nxlog/output.erb')),
   }
 }

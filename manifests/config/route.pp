@@ -20,6 +20,6 @@ define nxlog::config::route (
   concat::fragment { "route_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_route,
-    content => template('nxlog/route.erb'),
+    content => unix2dos(template('nxlog/route.erb')),
   }
 }
