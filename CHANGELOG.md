@@ -1,5 +1,11 @@
 [![GitHub tag][gh-tag-img]][gh-link]
 
+## 2020-10-14 - Relasee 2.0.0
+
+- modernization including PDK and removal of legacy facts and top scope references
+- add `unix2dos` function to template output so that line endings are correct
+- directory separator for Linux and Windows
+
 ## 2017-10-11 - Release 1.4.2  
 - Updated dependencies so the puppetlabs version of the chocolatey module is used
 - Updated testing related files
