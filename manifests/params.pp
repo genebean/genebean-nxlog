@@ -7,6 +7,7 @@ class nxlog::params {
   $ext_options                 = undef
   $input_execs                 = []
   $input_module                = undef
+  $input_options               = undef
   $input_file_path             = undef
   $input_type                  = undef
   $nxlog_root                  = undef
@@ -16,7 +17,7 @@ class nxlog::params {
   $output_module               = undef
   $output_options              = undef
   $output_port                 = undef
-  $package_name                = $::kernel ? {
+  $package_name                = $facts['kernel'] ? {
     'Linux'   => 'nxlog-ce',
     'Windows' => 'nxlog',
     default   => 'nxlog',

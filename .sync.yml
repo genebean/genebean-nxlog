@@ -1,6 +1,57 @@
 ---
+.gitlab-ci.yml:
+  delete: true
 .travis.yml:
-  slack_rooms:
-    - 'MQNT1pk+foO5sk6nWD7ZmCNqKrfNT7If4XfNv0rLuKYqddtSRiuvwsg+s6WEeoOQYeAz89MVSpMIZonQiBc5Mzb5l+MABkThbRsgtgsREfWf3RMc2XGhjbvaWGEtxQ7OJG0FieUBo5r0OOG1Nz5T3bWIhm2OOxy+rq9jjC7dfJIvvwfjg/J6VdkBsENF5BazUWUStp923Oknp/6DXrn6q8BOMxFXCILm+d36l9reDvRdEMzjC2AObMMAefgErch7AWCkZR/PHbevkPOVjU4YU4X3gHRk56yCVJnHIAXdaLOMWUyrXsgc+oX7Y/4JdDWUz968k7lo7MrEqYleh01y+d5SQ/Z59Z1PE6JK1EqsdUXjyRhRa2O4JINN6TpookzzA+NRI2onOcSY8bLSvgO86M+1Of+N4a4tUlE82iuDkdNFF3rUi7wYvUnjvL1AoAhh4c28it9ifVEPpFRW1ATC1nlJvrhk0RphQW1y9mWG8TTt98n9ISwcP56p6rfQlYPKJ+T+PiEG3QQnX4Ptv9jB93LXbYhSJf9jbx0l5xTM/rHf6+AkZivPp3SdtFFVI1UeRFtpwHNT9XRs0bOz61oVdYmqavd1+oFYP2hxwWKfgaxnputJXTam/F0h6w5ljj31piEHHZ4Nz0qk/OOgxsb12yV5RCRs8dK0WiqPS/pFKZ0=' # thecomfyseat
-    - 'rDUAg53GMgtsdyyBmJUPMhT64qJ7un9NJrSuvKFfBbFaoY1EoveoG+AuZkeZd/+ZvAhVCMqy3DaKAP8HN600evncjHpN7O6lRiYcl8N5xsc2lS2x6/za1TigdBYLP+Hup9LqpwAg5V2D47/HHsJcbXSBtj01oknGf536aef38PaQ4wOP3lIWil29dHUIjVRN1dvzbrCW0dryy3AYMgakMCIM441l3Iwp5vC8qy85KaL1Ifq+6PZ/7zx6nuvZ1oU/fiyjcpu3fhZhJAF5P5Tu28gkdAwSzrNgSRq/Tlu+R9IkqnxYorsbhAX7cvXvF+zpIJ9XRGo+2Hu5DzZGmPjKgd65FTkLdD6YLsi4JZ1I1Loj1jIIyS5O83JBLraSWnPb1fcADt6MyydCeWmreWc5dnCzsdkyHGXDxB0voeNHBGBDpD9hDQ4omNIuMcaVZLBb5KY+9mJPpvnajJN42x1jHOqlR4RYHLRlMqoKqU4oT68l+EYH6zKAUBczYEq8DtkGEZ8VkAIc2k2UIrnXyOT+I7FxoCKnUgu4SsE+GOF7flnvJhaU3RSdfPyvw7G4x6IZ7odEjFLsky2J13EkkcRxM3HmjO/B6JNqQm9VTXAikMnACy3l7HglznIC4eBLaSUR38s6JnieEaZlafekiL6XAzngRjYmE+5tpHWOzMR7j8s=' # uwg-techs
+  branches:
+    - develop
+  notifications:
+    #- email:
+        #on_failure: 'change'
+        #on_success: 'never'
+    - slack:
+        rooms:
+          - secure: 'MQNT1pk+foO5sk6nWD7ZmCNqKrfNT7If4XfNv0rLuKYqddtSRiuvwsg+s6WEeoOQYeAz89MVSpMIZonQiBc5Mzb5l+MABkThbRsgtgsREfWf3RMc2XGhjbvaWGEtxQ7OJG0FieUBo5r0OOG1Nz5T3bWIhm2OOxy+rq9jjC7dfJIvvwfjg/J6VdkBsENF5BazUWUStp923Oknp/6DXrn6q8BOMxFXCILm+d36l9reDvRdEMzjC2AObMMAefgErch7AWCkZR/PHbevkPOVjU4YU4X3gHRk56yCVJnHIAXdaLOMWUyrXsgc+oX7Y/4JdDWUz968k7lo7MrEqYleh01y+d5SQ/Z59Z1PE6JK1EqsdUXjyRhRa2O4JINN6TpookzzA+NRI2onOcSY8bLSvgO86M+1Of+N4a4tUlE82iuDkdNFF3rUi7wYvUnjvL1AoAhh4c28it9ifVEPpFRW1ATC1nlJvrhk0RphQW1y9mWG8TTt98n9ISwcP56p6rfQlYPKJ+T+PiEG3QQnX4Ptv9jB93LXbYhSJf9jbx0l5xTM/rHf6+AkZivPp3SdtFFVI1UeRFtpwHNT9XRs0bOz61oVdYmqavd1+oFYP2hxwWKfgaxnputJXTam/F0h6w5ljj31piEHHZ4Nz0qk/OOgxsb12yV5RCRs8dK0WiqPS/pFKZ0=' # thecomfyseat
+          - secure: 'rDUAg53GMgtsdyyBmJUPMhT64qJ7un9NJrSuvKFfBbFaoY1EoveoG+AuZkeZd/+ZvAhVCMqy3DaKAP8HN600evncjHpN7O6lRiYcl8N5xsc2lS2x6/za1TigdBYLP+Hup9LqpwAg5V2D47/HHsJcbXSBtj01oknGf536aef38PaQ4wOP3lIWil29dHUIjVRN1dvzbrCW0dryy3AYMgakMCIM441l3Iwp5vC8qy85KaL1Ifq+6PZ/7zx6nuvZ1oU/fiyjcpu3fhZhJAF5P5Tu28gkdAwSzrNgSRq/Tlu+R9IkqnxYorsbhAX7cvXvF+zpIJ9XRGo+2Hu5DzZGmPjKgd65FTkLdD6YLsi4JZ1I1Loj1jIIyS5O83JBLraSWnPb1fcADt6MyydCeWmreWc5dnCzsdkyHGXDxB0voeNHBGBDpD9hDQ4omNIuMcaVZLBb5KY+9mJPpvnajJN42x1jHOqlR4RYHLRlMqoKqU4oT68l+EYH6zKAUBczYEq8DtkGEZ8VkAIc2k2UIrnXyOT+I7FxoCKnUgu4SsE+GOF7flnvJhaU3RSdfPyvw7G4x6IZ7odEjFLsky2J13EkkcRxM3HmjO/B6JNqQm9VTXAikMnACy3l7HglznIC4eBLaSUR38s6JnieEaZlafekiL6XAzngRjYmE+5tpHWOzMR7j8s=' # uwg-techs
+appveyor.yml:
+  delete: true
+Gemfile:
+  required:
+    ':development':
+      - gem: 'puppet-lint-absolute_template_path'
+        version: '~> 1.0'
+      - gem: 'puppet-lint-empty_string-check'
+        version: '~> 0.2'
+      - gem: 'puppet-lint-leading_zero-check'
+        version: '~> 0.1'
+      - gem: 'puppet-lint-legacy_facts-check'
+        version: '~> 1.0'
+      - gem: 'puppet-lint-resource_reference_syntax'
+        version: '~> 1.0'
+      - gem: 'puppet-lint-spaceship_operator_without_tag-check'
+        version: '~> 0.1'
+      - gem: 'puppet-lint-top_scope_facts-check'
+        version: '~> 1.0'
+      - gem: 'puppet-lint-trailing_comma-check'
+        version: '~> 0.4'
+      - gem: 'puppet-lint-trailing_newline-check'
+        version: '~> 1.1'
+      - gem: 'puppet-lint-undef_in_function-check'
+        version: '~> 0.2'
+      - gem: 'puppet-lint-unquoted_string-check'
+        version: '~> 0.3'
+      - gem: 'puppet-lint-variable_contains_upcase'
+        version: '~> 1.2'
+      - gem: 'puppet-lint-version_comparison-check'
+        version: '~> 0.2'
+      - gem: 'github_changelog_generator'
+        git: 'https://github.com/skywinder/github-changelog-generator'
+        ref: '20ee04ba1234e9e83eb2ffb5056e23d641c7a018'
+        condition: "Gem::Version.new(RUBY_VERSION.dup) >= Gem::Version.new('2.2.2')"
+      - gem: 'coveralls'
+Rakefile:
+  requires:
+    - 'puppet-strings/tasks'
+spec/spec_helper.rb:
+  mock_with: ':rspec'
+  coverage_report: true
 

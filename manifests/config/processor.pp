@@ -1,7 +1,7 @@
 # allow for custom porcessor blocks
 #
 # Example Puppet Code:
-# ::nxlog::config::processor { 'tranformer':
+# nxlog::config::processor { 'tranformer':
 #   processor_module  => 'pm_transformer',
 #   processor_input_format    => 'syslog_rfc3164',
 #   processor_output_format   => 'csv',
@@ -19,13 +19,13 @@
 # Resulting output:
 #
 define nxlog::config::processor (
-  $conf_dir                    = $::nxlog::conf_dir,
-  $conf_file                   = $::nxlog::conf_file,
-  $order_processor             = $::nxlog::order_output,
-  $processor_module            = $::nxlog::processor_module,
-  $processor_input_format      = $::nxlog::processor_input_format,
-  $processor_output_format     = $::nxlog::processor_output_format,
-  $processor_csv_output_fields = $::nxlog::processor_csv_output_fields,
+  $conf_dir                    = $nxlog::conf_dir,
+  $conf_file                   = $nxlog::conf_file,
+  $order_processor             = $nxlog::order_output,
+  $processor_module            = $nxlog::processor_module,
+  $processor_input_format      = $nxlog::processor_input_format,
+  $processor_output_format     = $nxlog::processor_output_format,
+  $processor_csv_output_fields = $nxlog::processor_csv_output_fields,
   ) {
   $processor_template = $processor_module ? {
     'pm_transformer' => 'nxlog/processor/transformer.erb',
@@ -43,6 +43,6 @@ define nxlog::config::processor (
   concat::fragment { "processor_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_processor,
-    content => template($processor_template),
+    content => unix2dos(template($processor_template)),
   }
 }
