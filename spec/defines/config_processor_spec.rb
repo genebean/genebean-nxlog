@@ -56,11 +56,7 @@ describe 'nxlog::config::processor', type: :define do
 
       let(:title) { 'foo' }
 
-      it do
-        expect {
-          is_expected.to compile
-        }.to raise_error(%r{A template for foo has not been created yet.})
-      end
+      it { is_expected.to compile.and_raise_error(%r{A template for foo has not been created yet.}) }
     end
   end
 
@@ -119,11 +115,7 @@ describe 'nxlog::config::processor', type: :define do
 
       let(:title) { 'foo' }
 
-      it do
-        expect {
-          is_expected.to compile
-        }.to raise_error(%r{A template for foo has not been created yet.})
-      end
+      it { is_expected.to compile.and_raise_error(%r{A template for foo has not been created yet.}) }
     end
   end
 end
