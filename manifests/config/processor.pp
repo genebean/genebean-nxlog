@@ -40,9 +40,15 @@ define nxlog::config::processor (
     fail('processor_csv_output_fields must be an array.')
   }
 
+  $processor_converted = $facts['kernel'] ? {
+    'Linux'   => dos2unix(template($processor_template)),
+    'Windows' => unix2dos(template($processor_template)),
+    default   => dos2unix(template($processor_template)),
+  }
+
   concat::fragment { "processor_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_processor,
-    content => unix2dos(template($processor_template)),
+    content => $processor_converted,
   }
 }

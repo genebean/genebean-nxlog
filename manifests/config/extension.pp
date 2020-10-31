@@ -13,9 +13,18 @@ define nxlog::config::extension (
   $ext_module      = $nxlog::ext_module,
   $ext_options     = $nxlog::ext_options,
   $order_extension = $nxlog::order_extension,) {
+
+  $extension_template = template('nxlog/extension.erb')
+
+  $extension_converted = $facts['kernel'] ? {
+    'Linux'   => dos2unix($extension_template),
+    'Windows' => unix2dos($extension_template),
+    default   => dos2unix($extension_template),
+  }
+
   concat::fragment { "extension_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_extension,
-    content => unix2dos(template('nxlog/extension.erb')),
+    content => $extension_converted,
   }
 }

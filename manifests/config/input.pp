@@ -20,9 +20,18 @@ define nxlog::config::input (
   $input_options   = $nxlog::input_options,
   $input_type      = $nxlog::input_type,
   $order_input     = $nxlog::order_input,) {
+
+  $input_template = template('nxlog/input.erb')
+
+  $input_converted = $facts['kernel'] ? {
+    'Linux'   => dos2unix($input_template),
+    'Windows' => unix2dos($input_template),
+    default   => dos2unix($input_template),
+  }
+
   concat::fragment { "input_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_input,
-    content => unix2dos(template('nxlog/input.erb')),
+    content => $input_converted,
   }
 }
