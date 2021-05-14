@@ -17,9 +17,18 @@ define nxlog::config::route (
   $order_route       = $nxlog::order_route,
   $route_destination = $nxlog::route_destination,
   $route_source      = $nxlog::route_source,) {
+
+  $route_template = template('nxlog/route.erb')
+
+  $route_converted = $facts['kernel'] ? {
+    'Linux'   => dos2unix($route_template),
+    'Windows' => unix2dos($route_template),
+    default   => dos2unix($route_template),
+  }
+
   concat::fragment { "route_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_route,
-    content => unix2dos(template('nxlog/route.erb')),
+    content => $route_converted,
   }
 }

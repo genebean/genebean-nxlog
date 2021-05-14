@@ -25,9 +25,17 @@ define nxlog::config::output (
   $output_options   = $nxlog::output_options,
   $output_port      = $nxlog::output_port,) {
 
+  $output_template = template('nxlog/output.erb')
+
+  $output_converted = $facts['kernel'] ? {
+    'Linux'   => dos2unix($output_template),
+    'Windows' => unix2dos($output_template),
+    default   => dos2unix($output_template),
+  }
+
   concat::fragment { "output_${name}":
     target  => "${conf_dir}/${conf_file}",
     order   => $order_output,
-    content => unix2dos(template('nxlog/output.erb')),
+    content => $output_converted,
   }
 }
