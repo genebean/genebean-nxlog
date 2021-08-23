@@ -10,6 +10,8 @@
 ## Please set the ROOT to the folder your nxlog was installed into,
 ## otherwise it will not start.
 
+DateFormat YYYY-MM-DDThh:mm:ssTZ
+
 <%- if @nxlog_root -%>
 define ROOT <%= @nxlog_root %>
 
@@ -19,3 +21,5 @@ Pidfile %ROOT%\data\nxlog.pid
 SpoolDir %ROOT%\data
 LogFile %ROOT%\data\nxlog.log
 <%- end %>
+<% [*@header_options].each do |header_option| -%><%="  #{header_option}" %>
+<% end %>

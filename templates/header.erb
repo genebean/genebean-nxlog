@@ -19,3 +19,5 @@ Pidfile %ROOT%\data\nxlog.pid
 SpoolDir %ROOT%\data
 LogFile %ROOT%\data\nxlog.log
 <%- end %>
+<% [*@header_options].each do |header_option| -%><%="  #{header_option}" %>
+<% end %>

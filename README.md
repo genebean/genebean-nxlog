@@ -109,8 +109,14 @@ module.
 
 `ensure_setting` - this is passed to the package resource
 
-`nxlog_root` - the installation directory for the nxlog program. On Windows this
-is a required setting as NXLog will not start otherwise.
+`service_provider` - provider for service nxlog (need change for CentOS7 and RHEL7 to redhat)
+
+`nxlog_root` - the installation directory for the nxlog program. On Windows this is a required setting as NXLog will not start otherwise
+
+`header_options` - an array of options for the added to header. Each item in
+  the array will be an line in this section of the config file
+
+`header_template` - override default template for header nxlog conf_file
 
 ### Defined Types
 
@@ -121,7 +127,7 @@ name.
 
 * `ext_module` - the name of the extension module to use
 * `ext_options` - an array of options for the added ext_module. Each item in
-  the array will be an line in this section of the config file.
+  the array will be an line in this section of the config file
 * `ext_template` - for use custom template
 
 `nxlog::config::input` - builds an Input section using the specified name.
@@ -133,6 +139,7 @@ name.
 * `input_options` - an array of options for the added input_module. Each 
   item in the array will be an line in this section of the config file
 * `input_template` - for use custom template
+
 `nxlog::config::output` - builds an Output section using the specified name.
 
 * `output_address`   - the address of the remote host to send data to
@@ -151,7 +158,7 @@ name.
 * `porcessor_input_format` - the format of the data being converted or processed
 * `processor_output_format` - the format to convert the data to
 * `processor_csv_output_fields` - fields which are placed in the CSV lines.
-  The field names must have the dollar sign "$" prepended.
+  The field names must have the dollar sign "$" prepended
 
 `nxlog::config::route` - builds a Route section using the specified name.
 

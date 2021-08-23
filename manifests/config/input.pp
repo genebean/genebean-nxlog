@@ -2,7 +2,7 @@
 #
 # Example Puppet Code:
 # ::nxlog::config::input { 'sawyer':
-#   output_module  => 'im_msvistalog',
+#   input_module  => 'im_msvistalog',
 #   input_execs    => [
 #     'delete($Keywords)',
 #     '$raw_event = to_json()',
